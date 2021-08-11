@@ -70,6 +70,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+
+
+
   List<BubbleBottomBarItem> items = [
       BubbleBottomBarItem(
         showBadge: true,
@@ -89,73 +92,51 @@ class _MyHomePageState extends State<MyHomePage> {
       BubbleBottomBarItem(
           backgroundColor: Colors.deepPurple,
           icon: Icon(
-            Icons.access_time,
+            Icons.shopping_cart_rounded,
             color: Colors.black,
           ),
           activeIcon: Icon(
-            Icons.access_time,
+            Icons.shopping_cart_rounded,
             color: Colors.deepPurple,
           ),
-          title: Text("Logs")),
+          title: Text("Cart")),
       BubbleBottomBarItem(
           backgroundColor: Colors.indigo,
           icon: Icon(
-            Icons.folder_open,
+            Icons.message,
             color: Colors.black,
           ),
           activeIcon: Icon(
-            Icons.folder_open,
+            Icons.message,
             color: Colors.indigo,
           ),
-          title: Text("Folders")),
+          title: Text("Messages")),
       BubbleBottomBarItem(
           backgroundColor: Colors.green,
           icon: Icon(
-            Icons.menu,
+            Icons.account_circle,
             color: Colors.black,
           ),
           activeIcon: Icon(
-            Icons.menu,
+            Icons.account_circle,
             color: Colors.green,
           ),
-          title: Text("Menu"))
+          title: Text("Account")),
+    BubbleBottomBarItem(
+        backgroundColor: Colors.green,
+        icon: Icon(
+          Icons.more_vert,
+          color: Colors.black,
+        ),
+        activeIcon: Icon(
+          Icons.more_vert,
+          color: Colors.green,
+        ),
+        title: Text("Setting"))
 
 
   ];
 
-}
-
-class _BubbleBarItem extends StatelessWidget {
-  final String title;
-  final Icon icon;
-  final Color BackColor;
-  final Color iconColor;
-  final Color active_iconColor;
-
-
-  const _BubbleBarItem({
-    Key key,
-    @required this.title,
-    @required this.icon,
-    @required this.BackColor,
-    @required this.iconColor,
-    @required this.active_iconColor,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BubbleBottomBarItem(
-        backgroundColor: BackColor,
-        icon: Icon(
-          icon,
-          color: iconColor,
-        ),
-        activeIcon: Icon(
-          icon,
-          color: active_iconColor,
-        ),
-        title: Text(title));
-  }
 }
 
 
