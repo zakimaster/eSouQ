@@ -1,10 +1,11 @@
+import 'package:esouq/Tools/light_color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_app/src/themes/light_color.dart';
-import 'package:flutter_ecommerce_app/src/widgets/BottomNavigationBar/bottom_curved_Painter.dart';
+
+import 'bottom_curved_Painter.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   final Function(int) onIconPresedCallback;
-  CustomBottomNavigationBar({Key key, this.onIconPresedCallback})
+  CustomBottomNavigationBar({required Key key, required this.onIconPresedCallback})
       : super(key: key);
 
   @override
@@ -16,8 +17,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
     with TickerProviderStateMixin {
   int _selectedIndex = 0;
 
-  AnimationController _xController;
-  AnimationController _yController;
+  late AnimationController _xController;
+  late AnimationController _yController;
   @override
   void initState() {
     _xController = AnimationController(

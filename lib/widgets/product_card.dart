@@ -1,14 +1,12 @@
+import 'package:esouq/Models/ProductModel.dart';
+import 'package:esouq/Tools/light_color.dart';
+import 'package:esouq/widgets/title_text.dart';
 import 'package:flutter/material.dart';
-
-import 'package:flutter_ecommerce_app/src/model/product.dart';
-import 'package:flutter_ecommerce_app/src/themes/light_color.dart';
-import 'package:flutter_ecommerce_app/src/widgets/title_text.dart';
-import 'package:flutter_ecommerce_app/src/widgets/extentions.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
   final ValueChanged<Product> onSelected;
-  ProductCard({Key key, this.product, this.onSelected}) : super(key: key);
+  ProductCard({required Key key, required this.product, required this.onSelected}) : super(key: key);
 
 //   @override
 //   _ProductCardState createState() => _ProductCardState();
@@ -70,25 +68,25 @@ class ProductCard extends StatelessWidget {
                 // SizedBox(height: 5),
                 TitleText(
                   text: product.name,
-                  fontSize: product.isSelected ? 16 : 14,
+                  fontSize: product.isSelected ? 16 : 14, key: ,
                 ),
                 TitleText(
                   text: product.category,
                   fontSize: product.isSelected ? 14 : 12,
-                  color: LightColor.orange,
+                  color: LightColor.orange, key: null,
                 ),
                 TitleText(
                   text: product.price.toString(),
-                  fontSize: product.isSelected ? 18 : 16,
-                ),
+                  fontSize: product.isSelected ? 18 : 16, key : ,
+                ), InkWell(
+          onTap: () {
+    Navigator.of(context).pushNamed('/');
+    onSelected(product);
+    })
               ],
-            ),
+            )
           ],
-        ),
-      ).ripple(() {
-        Navigator.of(context).pushNamed('/detail');
-        onSelected(product);
-      }, borderRadius: BorderRadius.all(Radius.circular(20))),
-    );
+        )
+    ));
   }
 }

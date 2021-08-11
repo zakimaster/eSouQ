@@ -1,16 +1,15 @@
+import 'package:esouq/Models/category.dart';
+import 'package:esouq/Tools/Theme.dart';
+import 'package:esouq/Tools/light_color.dart';
+import 'package:esouq/widgets/title_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_app/src/model/category.dart';
-import 'package:flutter_ecommerce_app/src/themes/light_color.dart';
-import 'package:flutter_ecommerce_app/src/themes/theme.dart';
-import 'package:flutter_ecommerce_app/src/widgets/title_text.dart';
-import 'package:flutter_ecommerce_app/src/widgets/extentions.dart';
 
 class ProductIcon extends StatelessWidget {
   // final String imagePath;
   // final String text;
   final ValueChanged<Category> onSelected;
   final Category model;
-  ProductIcon({Key key, this.model, this.onSelected}) : super(key: key);
+  ProductIcon({required Key key, required this.model, required this.onSelected}) : super(key: key);
 
   Widget build(BuildContext context) {
     return model.id == null
@@ -47,16 +46,11 @@ class ProductIcon extends StatelessWidget {
                           child: TitleText(
                             text: model.name,
                             fontWeight: FontWeight.w700,
-                            fontSize: 15,
+                            fontSize: 15, key: null,
                           ),
                         )
                 ],
               ),
-            ).ripple(
-              () {
-                onSelected(model);
-              },
-              borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
           );
   }
