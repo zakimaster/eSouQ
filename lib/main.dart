@@ -65,57 +65,98 @@ class _MyHomePageState extends State<MyHomePage> {
         tilesPadding: EdgeInsets.symmetric(
           vertical: 8.0,
         ),
-        items: <BubbleBottomBarItem>[
-          BubbleBottomBarItem(
-            showBadge: true,
-            badge: Text("5"),
-            badgeColor: Colors.deepPurpleAccent,
-            backgroundColor: Colors.red,
-            icon: Icon(
-              Icons.dashboard,
-              color: Colors.black,
-            ),
-            activeIcon: Icon(
-              Icons.dashboard,
-              color: Colors.red,
-            ),
-            title: Text("Home"),
-          ),
-          BubbleBottomBarItem(
-              backgroundColor: Colors.deepPurple,
-              icon: Icon(
-                Icons.access_time,
-                color: Colors.black,
-              ),
-              activeIcon: Icon(
-                Icons.access_time,
-                color: Colors.deepPurple,
-              ),
-              title: Text("Logs")),
-          BubbleBottomBarItem(
-              backgroundColor: Colors.indigo,
-              icon: Icon(
-                Icons.folder_open,
-                color: Colors.black,
-              ),
-              activeIcon: Icon(
-                Icons.folder_open,
-                color: Colors.indigo,
-              ),
-              title: Text("Folders")),
-          BubbleBottomBarItem(
-              backgroundColor: Colors.green,
-              icon: Icon(
-                Icons.menu,
-                color: Colors.black,
-              ),
-              activeIcon: Icon(
-                Icons.menu,
-                color: Colors.green,
-              ),
-              title: Text("Menu"))
-        ],
+        items: items,
       ),
     );
   }
+
+  List<BubbleBottomBarItem> items = [
+      BubbleBottomBarItem(
+        showBadge: true,
+        badge: Text("5"),
+        badgeColor: Colors.deepPurpleAccent,
+        backgroundColor: Colors.red,
+        icon: Icon(
+          Icons.dashboard,
+          color: Colors.black,
+        ),
+        activeIcon: Icon(
+          Icons.dashboard,
+          color: Colors.red,
+        ),
+        title: Text("Home"),
+      ),
+      BubbleBottomBarItem(
+          backgroundColor: Colors.deepPurple,
+          icon: Icon(
+            Icons.access_time,
+            color: Colors.black,
+          ),
+          activeIcon: Icon(
+            Icons.access_time,
+            color: Colors.deepPurple,
+          ),
+          title: Text("Logs")),
+      BubbleBottomBarItem(
+          backgroundColor: Colors.indigo,
+          icon: Icon(
+            Icons.folder_open,
+            color: Colors.black,
+          ),
+          activeIcon: Icon(
+            Icons.folder_open,
+            color: Colors.indigo,
+          ),
+          title: Text("Folders")),
+      BubbleBottomBarItem(
+          backgroundColor: Colors.green,
+          icon: Icon(
+            Icons.menu,
+            color: Colors.black,
+          ),
+          activeIcon: Icon(
+            Icons.menu,
+            color: Colors.green,
+          ),
+          title: Text("Menu"))
+
+
+  ];
+
 }
+
+class _BubbleBarItem extends StatelessWidget {
+  final String title;
+  final Icon icon;
+  final Color BackColor;
+  final Color iconColor;
+  final Color active_iconColor;
+
+
+  const _BubbleBarItem({
+    Key key,
+    @required this.title,
+    @required this.icon,
+    @required this.BackColor,
+    @required this.iconColor,
+    @required this.active_iconColor,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BubbleBottomBarItem(
+        backgroundColor: BackColor,
+        icon: Icon(
+          icon,
+          color: iconColor,
+        ),
+        activeIcon: Icon(
+          icon,
+          color: active_iconColor,
+        ),
+        title: Text(title));
+  }
+}
+
+
+
