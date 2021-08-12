@@ -1,3 +1,4 @@
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:esouq/Models/AppData.dart';
 import 'package:esouq/Tools/Theme.dart';
 import 'package:esouq/Tools/light_color.dart';
@@ -6,132 +7,69 @@ import 'package:esouq/widgets/product_icon.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import 'Home.dart';
+
+
 class HomeScreen extends StatefulWidget {
-  HomeScreen({required Key key, required this.title}) : super(key: key);
-
-  final String title;
-
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Widget _icon(IconData icon, {Color color = LightColor.iconColor}) {
-    return Container(
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(13)),
-          color: Theme.of(context).backgroundColor,
-          boxShadow: AppTheme.shadow),
-      child: Icon(
-        icon,
-        color: color,
-      ),
-    );
-  }
+  static const double _playerMinHeight = 60.0;
 
-  Widget _categoryWidget() {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      width: AppTheme.fullWidth(context),
-      height: 80,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: AppData.categoryList.map(
-              (category) => ProductIcon(
-            model: category,
-            onSelected: (model) {
-              setState(() {
-                AppData.categoryList.forEach((item) {
-                  item.isSelected = false;
-                });
-                model.isSelected = true;
-              });
-            },
-          ),
-        ).toList(),
-      ),
-    );
-  }
+  int _selectedIndex = 0;
 
-  Widget _productWidget() {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      width: AppTheme.fullWidth(context),
-      height: AppTheme.fullWidth(context) * .7,
-      child: GridView(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 1,
-            childAspectRatio: 4 / 3,
-            mainAxisSpacing: 30,
-            crossAxisSpacing: 20),
-        padding: EdgeInsets.only(left: 20),
-        scrollDirection: Axis.horizontal,
-        children: AppData.productList.map(
-              (product) => ProductCard(
-            product: product,
-            onSelected: (model) {
-              setState(() {
-                AppData.productList.forEach((item) {
-                  item.isSelected = false;
-                });
-                model.isSelected = true;
-              });
-            },
-          ),
-        )
-            .toList(),
-      ),
-    );
-  }
-
-  Widget _search() {
-    return Container(
-      margin: AppTheme.padding,
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: Container(
-              height: 40,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  color: LightColor.lightGrey.withAlpha(100),
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-              child: TextField(
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: "Search Products",
-                    hintStyle: TextStyle(fontSize: 12),
-                    contentPadding:
-                    EdgeInsets.only(left: 10, right: 10, bottom: 0, top: 5),
-                    prefixIcon: Icon(Icons.search, color: Colors.black54)),
-              ),
-            ),
-          ),
-          SizedBox(width: 20),
-          _icon(Icons.filter_list, color: Colors.black54)
-        ],
-      ),
-    );
-  }
+  final _screens = [
+    Home(),
+    const Scaffold(body: Center(child: Text('Cart'))),
+    const Scaffold(body: Center(child: Text('Messages'))),
+    const Scaffold(body: Center(child: Text('Account'))),
+    const Scaffold(body: Center(child: Text('Settings'))),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height - 210,
-      child: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        dragStartBehavior: DragStartBehavior.down,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            _search(),
-            _categoryWidget(),
-            _productWidget(),
-          ],
-        ),
-      ),
+    return Scaffold(
+      body: Stack(
+            children: _screens
+                .asMap()
+                .map((i, screen) => MapEntry(
+              i,
+              Offstage(
+                offstage: _selectedIndex != i,
+                child: screen,
+              ),
+            )).values
+                .toList()
+      ),bottomNavigationBar: BottomNavyBar(
+        selectedIndex: _selectedIndex,
+        onItemSelected: (i) => setState(() => _selectedIndex = i),
+         items: BBItems,
+    ),
     );
   }
+
+  List<BottomNavyBarItem> BBItems=[
+    BottomNavyBarItem(
+        title: Text('Home'),
+        icon: Icon(Icons.home)
+    ),
+    BottomNavyBarItem(
+        title: Text('Cart'),
+        icon: Icon(Icons.apps)
+    ),
+    BottomNavyBarItem(
+        title: Text('Messages'),
+        icon: Icon(Icons.chat_bubble)
+    ),
+    BottomNavyBarItem(
+        title: Text('Account'),
+        icon: Icon(Icons.settings)
+    ),
+    BottomNavyBarItem(
+        title: Text('Settings'),
+        icon: Icon(Icons.settings)
+    ),
+  ];
 }

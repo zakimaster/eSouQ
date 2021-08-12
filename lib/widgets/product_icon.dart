@@ -9,7 +9,7 @@ class ProductIcon extends StatelessWidget {
   // final String text;
   final ValueChanged<Category> onSelected;
   final Category model;
-  ProductIcon({required Key key, required this.model, required this.onSelected}) : super(key: key);
+  ProductIcon({required this.model, required this.onSelected}) : super();
 
   Widget build(BuildContext context) {
     return model.id == null
@@ -46,7 +46,7 @@ class ProductIcon extends StatelessWidget {
                           child: TitleText(
                             text: model.name,
                             fontWeight: FontWeight.w700,
-                            fontSize: 15, key: null,
+                            fontSize: 15,
                           ),
                         )
                 ],

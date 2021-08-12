@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class ProductCard extends StatelessWidget {
   final Product product;
   final ValueChanged<Product> onSelected;
-  ProductCard({required Key key, required this.product, required this.onSelected}) : super(key: key);
+  ProductCard({ required this.product, required this.onSelected}) : super();
 
 //   @override
 //   _ProductCardState createState() => _ProductCardState();
@@ -68,16 +68,16 @@ class ProductCard extends StatelessWidget {
                 // SizedBox(height: 5),
                 TitleText(
                   text: product.name,
-                  fontSize: product.isSelected ? 16 : 14, key: ,
+                  fontSize: product.isSelected ? 16 : 14,
                 ),
                 TitleText(
                   text: product.category,
                   fontSize: product.isSelected ? 14 : 12,
-                  color: LightColor.orange, key: null,
+                  color: LightColor.orange,
                 ),
                 TitleText(
                   text: product.price.toString(),
-                  fontSize: product.isSelected ? 18 : 16, key : ,
+                  fontSize: product.isSelected ? 18 : 16,
                 ), InkWell(
           onTap: () {
     Navigator.of(context).pushNamed('/');

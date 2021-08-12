@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CareView extends StatelessWidget {
   final AnimationController animationController;
 
-  const CareView({Key? key, required this.animationController})
+  const CareView({ Key? key,  required this.animationController})
       : super(key: key);
 
   @override

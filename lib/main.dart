@@ -1,20 +1,24 @@
 import 'package:esouq/Screens/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:flutter/services.dart';
 
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MaterialApp(
-      title: 'Bubble Bottom Bar Demo',
+      title: 'Flutter YouTube UI',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        brightness: Brightness.dark,
+        bottomNavigationBarTheme:
+        const BottomNavigationBarThemeData(selectedItemColor: Colors.white),
       ),
-      home: MyHomePage(title: 'Bubble Bottom Bar Demo'),
+      home: HomeScreen(),
     );
   }
 }
@@ -34,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if(current==0){
       return HomeScreen();
     }
+    return HomeScreen();
   }
 
   @override
@@ -48,38 +53,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final appSize = MediaQuery.of(context).size;
-    return Scaffold(
-      appBar: AppBar(title: Text("Bottom Nav Bar")),
-      body: changePage(_currentIndex),
-      bottomNavigationBar: BottomNavyBar(
-        selectedIndex: _currentIndex,
-        onItemSelected: (index) {
-          setState(() => changePage(index));
-        },
-        items: BBItems,
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    return MaterialApp(
+      title: 'eSouQ',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        bottomNavigationBarTheme:
+        const BottomNavigationBarThemeData(selectedItemColor: Colors.white),
       ),
+      home: HomeScreen(),
     );
   }
 
-  List<BottomNavyBarItem> BBItems=[
-    BottomNavyBarItem(
-        title: Text('Item One'),
-        icon: Icon(Icons.home)
-    ),
-    BottomNavyBarItem(
-        title: Text('Item Two'),
-        icon: Icon(Icons.apps)
-    ),
-    BottomNavyBarItem(
-        title: Text('Item Three'),
-        icon: Icon(Icons.chat_bubble)
-    ),
-    BottomNavyBarItem(
-        title: Text('Item Four'),
-        icon: Icon(Icons.settings)
-    ),
-  ];
+
 
 
 }
