@@ -6,6 +6,7 @@ import 'package:esouq/Tools/light_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,6 +19,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  int photoIndex = 0;
 
   Widget _icon(IconData icon, {Color color = LightColor.iconColor}) {
     Color BackColor = Colors.white;
@@ -51,14 +54,12 @@ class _HomeState extends State<Home> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            _search(),
+            _search(),image_carousel,
           ],
         ),
       ),
     );
   }
-
-
 
   Widget _search() {
     return Container(
