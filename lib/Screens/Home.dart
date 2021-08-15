@@ -6,6 +6,9 @@ import 'package:esouq/Tools/light_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '/widgets/product_icon.dart';
 import '/widgets/product_card.dart';
 
@@ -17,19 +20,20 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   Widget _icon(IconData icon, {Color color = LightColor.iconColor}) {
+    Color BackColor = Colors.white;
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(13)),
-          color: Theme
-              .of(context)
-              .backgroundColor,
+          color: BackColor,
           boxShadow: AppTheme.shadow),
-      child: Icon(
+      child: GestureDetector(
+        onTap: (){},
+        child:Icon(
         icon,
         color: color,
       ),
-    );
+    ));
   }
 
 
@@ -80,7 +84,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           SizedBox(width: 20),
-          _icon(Icons.filter_list, color: Colors.black54)
+          _icon(Icons.camera_alt_outlined, color: Colors.black54)
         ],
       ),
     );

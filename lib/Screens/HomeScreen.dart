@@ -44,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
             )).values
                 .toList()
       ),bottomNavigationBar: BottomNavyBar(
+      backgroundColor: Colors.white,
         selectedIndex: _selectedIndex,
         onItemSelected: (i) => setState(() => _selectedIndex = i),
          items: BBItems,
@@ -54,23 +55,33 @@ class _HomeScreenState extends State<HomeScreen> {
   List<BottomNavyBarItem> BBItems=[
     BottomNavyBarItem(
         title: Text('Home'),
-        icon: Icon(Icons.home)
+        icon: Icon(Icons.home_outlined),
+      inactiveColor: Colors.grey,
+      activeColor: Colors.red
     ),
     BottomNavyBarItem(
         title: Text('Cart'),
-        icon: Icon(Icons.apps)
+        icon: Icon(Icons.shopping_cart_outlined),
+        inactiveColor: Colors.grey,
+        activeColor: Colors.red
     ),
     BottomNavyBarItem(
         title: Text('Messages'),
-        icon: Icon(Icons.chat_bubble)
+        icon: Icon(Icons.chat_bubble_outline_rounded),
+        inactiveColor: Colors.grey,
+        activeColor: Colors.red
     ),
     BottomNavyBarItem(
         title: Text('Account'),
-        icon: Icon(Icons.settings)
+        icon: Icon(Icons.account_circle_outlined),
+        inactiveColor: Colors.grey,
+        activeColor: Colors.red
     ),
     BottomNavyBarItem(
         title: Text('Settings'),
-        icon: Icon(Icons.settings)
+        icon: Icon(Icons.settings_outlined),
+        inactiveColor: Colors.grey,
+        activeColor: Colors.red
     ),
   ];
 }
