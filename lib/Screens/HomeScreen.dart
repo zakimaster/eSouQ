@@ -30,9 +30,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-            children: _screens
+    return SafeArea(child:Scaffold(
+      body: ListView(
+        scrollDirection: Axis.vertical,
+            children : _screens
                 .asMap()
                 .map((i, screen) => MapEntry(
               i,
@@ -47,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onItemSelected: (i) => setState(() => _selectedIndex = i),
          items: BBItems,
     ),
-    );
+    ));
   }
 
   List<BottomNavyBarItem> BBItems=[

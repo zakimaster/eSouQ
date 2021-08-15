@@ -15,6 +15,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   Widget _icon(IconData icon, {Color color = LightColor.iconColor}) {
     return Container(
       padding: EdgeInsets.all(10),
@@ -47,70 +48,13 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             _search(),
-            _categoryWidget(),
-            _productWidget(),
           ],
         ),
       ),
     );
   }
 
-  Widget _categoryWidget() {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      width: AppTheme.fullWidth(context),
-      height: 80,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: AppData.categoryList.map(
-              (category) =>
-              ProductIcon(
-                  model: category,
-                  onSelected: (model) {
-                    setState(() {
-                      AppData.categoryList.forEach((item) {
-                        item.isSelected = false;
-                      });
-                      model.isSelected = true;
-                    });
-                  }
-              ),
-        ).toList(),
-      ),
-    );
-  }
 
-  Widget _productWidget() {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      width: AppTheme.fullWidth(context),
-      height: AppTheme.fullWidth(context) * .7,
-      child: GridView(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 1,
-            childAspectRatio: 4 / 3,
-            mainAxisSpacing: 30,
-            crossAxisSpacing: 20),
-        padding: EdgeInsets.only(left: 20),
-        scrollDirection: Axis.horizontal,
-        children: AppData.productList.map(
-              (product) =>
-              ProductCard(
-                product: product,
-                onSelected: (model) {
-                  setState(() {
-                    AppData.productList.forEach((item) {
-                      item.isSelected = false;
-                    });
-                    model.isSelected = true;
-                  });
-                },
-              ),
-        )
-            .toList(),
-      ),
-    );
-  }
 
   Widget _search() {
     return Container(
