@@ -15,17 +15,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.light,
-        primarySwatch: Colors.red,
-        accentColor: Colors.white,
-        backgroundColor: Colors.white,
         bottomNavigationBarTheme:
         const BottomNavigationBarThemeData(selectedItemColor: Colors.white),
       ),
       home: HomeScreen(),
     );
   }
-
 }
+
 
 
 

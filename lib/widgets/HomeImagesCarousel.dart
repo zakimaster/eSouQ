@@ -1,7 +1,9 @@
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'SliderIndicator/effects/worm_effect.dart';
+import 'SliderIndicator/smooth_page_indicator.dart';
 
 class HomeSliderSection extends StatefulWidget {
 
@@ -102,22 +104,11 @@ class _HomeSliderSectionState extends State<HomeSliderSection> {
       ),
     ),Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: widget.sectionData.asMap().entries.map((entry) {
-          return GestureDetector(
-            onTap: () => _controller.animateToPage(entry.key),
-            child: Container(
-              width: 12.0,
-              height: 12.0,
-              margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: (Theme.of(context).brightness == Brightness.dark
-                      ? Colors.white
-                      : Colors.black)
-                      .withOpacity(_current == entry.key ? 0.9 : 0.4)),
-            ),
-          );
-        }).toList(),
-      ),]);
+        children:[ AnimatedSmoothIndicator(
+          activeIndex: _current,
+          count:  6,
+          effect:  WormEffect(), textDirection : TextDirection.ltr, onDotClicked: (int index) {},
+        ),
+      ])]);
   }
 }
