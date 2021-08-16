@@ -1,92 +1,123 @@
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SelectedPhoto extends StatefulWidget {
+class HomeSliderSection extends StatefulWidget {
 
-  final int numberOfDots;
-  final int photoIndex;
+  final List<String> sectionData;
 
-  SelectedPhoto({required this.numberOfDots, required this.photoIndex});
-
-  Widget _inactivePhoto() {
-    return new Container(
-        child: new Padding(
-          padding: const EdgeInsets.only(left: 3.0, right: 3.0),
-          child: Container(
-            height: 8.0,
-            width: 8.0,
-            decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.circular(4.0)
-            ),
-          ),
-        )
-    );
-  }
-
-  Widget _activePhoto() {
-    return Container(
-      child: Padding(
-        padding: EdgeInsets.only(left: 3.0, right: 3.0),
-        child: Container(
-          height: 10.0,
-          width: 10.0,
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(5.0),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.grey,
-                    spreadRadius: 0.0,
-                    blurRadius: 2.0
-                )
-              ]
-          ),
-        ),
-      ),
-    );
-  }
-
-  List<Widget> _buildDots() {
-    List<Widget> dots = [];
-
-    for(int i = 0; i< numberOfDots; ++i) {
-      dots.add(
-          i == photoIndex ? _activePhoto(): _inactivePhoto()
-      );
-    }
-
-    return dots;
-  }
-
-
-  @override
-  Widget build(BuildContext context) {
-    return new Center(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: _buildDots(),
-      ),
-    );
-  }
-
-  void _previousImage() {
-    setState(() {
-      photoIndex = photoIndex > 0 ? photoIndex - 1 : 0;
-    });
-  }
-
-  void _nextImage() {
-    setState(() {
-      photoIndex = photoIndex < photos.length - 1 ? photoIndex + 1 : photoIndex;
-    });
-  }
+  const HomeSliderSection ({ Key? key,required this.sectionData }): super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
+    return _HomeSliderSectionState();
+  }
+}
+class _HomeSliderSectionState extends State<HomeSliderSection> {
+
+   String reason = '';
+   int _current = 0;
+   final CarouselController _controller = CarouselController();
+
+   void onPageChange(int index, CarouselPageChangedReason changeReason) {
+     setState(() {
+       reason = changeReason.toString();
+     });
+   }
+
+  @override
+  void initState() {
+    super.initState();
   }
 
+
+
+   @override
+  Widget build(BuildContext context) {
+
+     final List<Widget> imageSliders = widget.sectionData
+         .map((item) => Container(
+       child: Container(
+         margin: EdgeInsets.all(5.0),
+         child: ClipRRect(
+             borderRadius: BorderRadius.all(Radius.circular(5.0)),
+             child: Stack(
+               children: <Widget>[
+                 Image.network(item, fit: BoxFit.cover, width: 1000.0),
+                 Positioned(
+                   bottom: 0.0,
+                   left: 0.0,
+                   right: 0.0,
+                   child: Container(
+                     decoration: BoxDecoration(
+                       gradient: LinearGradient(
+                         colors: [
+                           Color.fromARGB(200, 0, 0, 0),
+                           Color.fromARGB(0, 0, 0, 0)
+                         ],
+                         begin: Alignment.bottomCenter,
+                         end: Alignment.topCenter,
+                       ),
+                     ),
+                     padding: EdgeInsets.symmetric(
+                         vertical: 10.0, horizontal: 20.0),
+                   ),
+                 ),
+               ],
+             )),
+       ),
+     ))
+         .toList();
+
+
+    if (widget.sectionData.isEmpty) {
+      return const SizedBox();
+    }
+    //final list = sectionData.items;
+    return Column(children: [
+      SizedBox(
+      height: 150.0,
+      child: CarouselSlider(
+          items: imageSliders,
+          options: CarouselOptions(
+            height: 400,
+            aspectRatio: 16/9,
+            viewportFraction: 0.8,
+            initialPage: 0,
+            enableInfiniteScroll: true,
+            reverse: false,
+            autoPlay: true,
+            autoPlayInterval: Duration(seconds: 3),
+            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            autoPlayCurve: Curves.fastOutSlowIn,
+            enlargeCenterPage: true,
+            onPageChanged: (index, reason) {
+              setState(() {
+                _current = index;
+              });
+            },
+            scrollDirection: Axis.horizontal,
+          )
+      ),
+    ),Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: widget.sectionData.asMap().entries.map((entry) {
+          return GestureDetector(
+            onTap: () => _controller.animateToPage(entry.key),
+            child: Container(
+              width: 12.0,
+              height: 12.0,
+              margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: (Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Colors.black)
+                      .withOpacity(_current == entry.key ? 0.9 : 0.4)),
+            ),
+          );
+        }).toList(),
+      ),]);
+  }
 }
