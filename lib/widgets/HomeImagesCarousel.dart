@@ -104,10 +104,10 @@ class _HomeSliderSectionState extends State<HomeSliderSection> {
       ),
     ),Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children:[ AnimatedSmoothIndicator(
+        children:[ AnimatedSmoothIndicator(5,
           activeIndex: _current,
-          count:  6,
-          effect:  WormEffect(), textDirection : TextDirection.ltr, onDotClicked: (int index) {},
+          count:  widget.sectionData.length,
+          effect:  WormEffect(offset: 5), textDirection : TextDirection.ltr, onDotClicked: (int index) {},
         ),
       ])]);
   }

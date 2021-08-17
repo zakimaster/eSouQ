@@ -38,7 +38,7 @@ class SmoothPageIndicator extends AnimatedWidget {
     this.axisDirection = Axis.horizontal,
     required this.textDirection,
     required this.onDotClicked,
-    this.effect = const WormEffect(),
+    this.effect = const WormEffect(offset: 5),
   }) : super(key: key, listenable: controller);
 
   @override
@@ -90,7 +90,7 @@ class SmoothIndicator extends StatelessWidget {
     this.axisDirection = Axis.horizontal,
     required this.textDirection,
     required this.onDotClicked,
-    this.effect = const WormEffect(),
+    this.effect = const WormEffect(offset: 5),
     Key? key,
   })  :
         // different effects have different sizes
@@ -139,6 +139,8 @@ class AnimatedSmoothIndicator extends ImplicitlyAnimatedWidget {
   /// layout direction vertical || horizontal
   final Axis axisDirection;
 
+  final double offset;
+
   /// The number of children in [PageView]
   final int count;
 
@@ -148,13 +150,13 @@ class AnimatedSmoothIndicator extends ImplicitlyAnimatedWidget {
   /// On dot clicked callback
   final Function(int index) onDotClicked;
 
-  AnimatedSmoothIndicator({
+  AnimatedSmoothIndicator(this.offset, {
     required this.activeIndex,
     required this.count,
     this.axisDirection = Axis.horizontal,
     required this.textDirection,
     required this.onDotClicked,
-    this.effect = const WormEffect(),
+    this.effect = const WormEffect(offset: 5),
     Curve curve = Curves.easeInOut,
     Duration duration = const Duration(milliseconds: 300),
     VoidCallback? onEnd,
@@ -174,7 +176,7 @@ class AnimatedSmoothIndicator extends ImplicitlyAnimatedWidget {
 
 class _AnimatedSmoothIndicatorState
     extends AnimatedWidgetBaseState<AnimatedSmoothIndicator> {
-  late Tween<double> _offset;
+   Tween<double> _offset = new Tween(begin: 5);
 
   @override
   void forEachTween(visitor) {

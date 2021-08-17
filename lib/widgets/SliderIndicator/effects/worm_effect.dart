@@ -6,13 +6,13 @@ import 'indicator_effect.dart';
 
 class WormEffect extends IndicatorEffect {
   const WormEffect({
-    double offset=5,
-    double dotWidth = 16.0,
-    double dotHeight = 16.0,
-    double spacing = 8.0,
-    double radius = 16,
+    required double offset,
+    double dotWidth = 8.0,
+    double dotHeight = 8.0,
+    double spacing = 4.0,
+    double radius = 8,
     Color dotColor = Colors.grey,
-    Color activeDotColor = Colors.indigo,
+    Color activeDotColor = Colors.redAccent,
     double strokeWidth = 1.0,
     PaintingStyle paintStyle = PaintingStyle.fill,
   }) : super(
