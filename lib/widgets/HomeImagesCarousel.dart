@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'SliderIndicator/effects/worm_effect.dart';
 import 'SliderIndicator/smooth_page_indicator.dart';
@@ -77,8 +78,8 @@ class _HomeSliderSectionState extends State<HomeSliderSection> {
       return const SizedBox();
     }
     //final list = sectionData.items;
-    return Column(children: [
-      SizedBox(
+    return Stack(fit: StackFit.passthrough ,children: <Widget> [
+      Container(
       height: 150.0,
       child: CarouselSlider(
           items: imageSliders,
@@ -102,13 +103,18 @@ class _HomeSliderSectionState extends State<HomeSliderSection> {
             scrollDirection: Axis.horizontal,
           )
       ),
-    ),Row(
+    ),
+      Positioned(
+          bottom: 12.0,
+          right: 0.0,
+     left: 0.0,
+     child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children:[ AnimatedSmoothIndicator(5,
           activeIndex: _current,
           count:  widget.sectionData.length,
           effect:  WormEffect(offset: 5), textDirection : TextDirection.ltr, onDotClicked: (int index) {},
         ),
-      ])]);
+      ]))]);
   }
 }

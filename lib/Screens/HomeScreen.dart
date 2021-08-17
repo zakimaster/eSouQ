@@ -1,10 +1,4 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:esouq/Models/AppData.dart';
-import 'package:esouq/Tools/Theme.dart';
-import 'package:esouq/Tools/light_color.dart';
-import 'package:esouq/widgets/product_card.dart';
-import 'package:esouq/widgets/product_icon.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'Home.dart';

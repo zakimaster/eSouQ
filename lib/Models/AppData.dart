@@ -58,16 +58,16 @@ class AppData {
     //     image: 'assets/small_tilt_shoe_2.png',
     //     category: "Trending Now"),
   ];
-  static List<Category> categoryList = [
-    Category(
-        id: 1,
-        name: "Sneakers",
-        image: 'assets/shoe_thumb_2.png',
-        isSelected: true),
-    Category(id: 2, name: "Jacket", image: 'assets/jacket.png'),
-    Category(id: 3, name: "Watch", image: 'assets/watch.png'),
-    Category(id: 4, name: "Watch", image: 'assets/watch.png'),
+
+  static List<Category> categories = [
+    Category('assets/images/clothes.png', 'Women'),
+    Category('assets/images/sneaker.png', 'Men'),
+    Category('assets/images/bodysuit.png', 'Baby'),
+    Category('assets/images/dress.png', 'Girls'),
+    Category('assets/images/computer.png', 'Computers'),
+    Category('assets/images/tent.png', 'Outsides'),
   ];
+
   static List<String> showThumbnailList = [
     "assets/shoe_thumb_5.png",
     "assets/shoe_thumb_1.png",
