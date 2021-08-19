@@ -1,12 +1,14 @@
 
 
 import 'package:esouq/Models/AppData.dart';
-import 'package:esouq/Tools/Theme.dart';
-import 'package:esouq/Tools/light_color.dart';
+import 'package:esouq/Tools/GeneralTools.dart';
+import 'package:esouq/themes/Theme.dart';
+import 'package:esouq/themes/light_color.dart';
 import 'package:esouq/widgets/CategoriesCard.dart';
 import 'package:esouq/widgets/HomeImagesCarousel.dart';
 import 'package:esouq/widgets/SearchView.dart';
 import 'package:esouq/widgets/Sections.dart';
+import 'package:esouq/widgets/TopSellProductItem.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +41,7 @@ class _HomeState extends State<Home> {
       height: MediaQuery
           .of(context)
           .size
-          .height - 210,
+          .height,
       child: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         dragStartBehavior: DragStartBehavior.down,
@@ -54,18 +56,39 @@ class _HomeState extends State<Home> {
               'https://images.unsplash.com/photo-1586943101559-4cdcf86a6f87?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1556&q=80',
               'https://images.unsplash.com/photo-1586951144438-26d4e072b891?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
               'https://images.unsplash.com/photo-1586953983027-d7508a64f4bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',]),),
-            Section(
-              'Categories',
-              AppData.categories.map((c) {
-                return CategoryCard(
-                  title: c.title,
-                  iconPath: c.iconPath,
-                  onTap: () {
-                    onCategorySelected(c);
-                  },
-                );
-              }).toList(),
-            ),],
+            SizedBox(height: 15),Section(
+              'Categories', false
+            ),SizedBox(height: 15),Container(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Wrap(
+                    spacing: 15.0,
+                    children: AppData.categories.map((c) {
+                      return CategoryCard(
+                        title: c.title,
+                        iconPath: c.iconPath,
+                        onTap: () {
+                          onCategorySelected(c);
+                        },
+                      );
+                    }).toList(),
+                  ),
+                ),
+              ),
+            ),SizedBox(height: 15),Section(
+                'Top sell', true
+            ),SizedBox(height: 15),Container(
+              height: GeneralTools(context).getHeight() * 0.25,
+        child: ListView.separated(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          scrollDirection: Axis.horizontal,
+          itemCount: AppData.productList.length,
+          itemBuilder: (_, i) => TopSellItems(item: AppData.productList[i]),
+          separatorBuilder: (_, __) => SizedBox(width: 10),
+        ),
+      )],
         ),
       ),
     );

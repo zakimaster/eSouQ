@@ -19,7 +19,7 @@ class CategoryCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         height: 90,
-        width: 130,
+        width: 110,
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
@@ -45,8 +45,8 @@ class CategoryCard extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  fontSize: 16.0,
-                  height: 1.5,
+                  fontSize: 15.0,
+                  height: 1.5,fontWeight: FontWeight.w600,color: Colors.black87
                 ),
               ),
             ],

@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 class Section extends StatelessWidget {
   final String title;
-  final List<Widget> children;
+  final bool isVisible;
 
   const Section(
       this.title,
-      this.children, {
+      this.isVisible,{
         Key? key,
       }) : super(key: key);
 
@@ -16,52 +16,34 @@ class Section extends StatelessWidget {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 28.0),
+          padding: EdgeInsets.symmetric(horizontal: 15.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 title,
-                style: TextStyle(fontSize: 20.0, height: 1),
+                style: TextStyle(fontSize: 17.0, height: 1,fontWeight: FontWeight.bold),
               ),
               InkWell(
-                child: Wrap(
+                child: isVisible? Wrap(
                   crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
                     Text(
                       'View all',
                       style: TextStyle(
-                        fontSize: 18.0,
+                        fontSize: 12.0,
                         height: 1,
                         color: Colors.redAccent,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10.0),
-                      child: Icon(
-                        Icons.arrow_forward,
-                        color: Colors.redAccent,
-                      ),
-                    ),
                   ],
-                ),
+                ) : SizedBox(height: 12,),
                 onTap: () {},
               )
             ],
           ),
         ),
-        Container(
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Padding(
-              padding: const EdgeInsets.all(28.0),
-              child: Wrap(
-                spacing: 28.0,
-                children: children,
-              ),
-            ),
-          ),
-        )
+
       ],
     );
   }
