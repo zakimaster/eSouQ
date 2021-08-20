@@ -34,10 +34,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
-      child: SingleChildScrollView(
+      child: ListView(
         physics: BouncingScrollPhysics(),
         dragStartBehavior: DragStartBehavior.down,
-        child: Column(
+        children:[ Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -85,16 +85,18 @@ class _HomeState extends State<Home> {
             ),SizedBox(height: 10),Container(
               margin: EdgeInsets.all(10),
               child:  StaggeredGridView.countBuilder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
                   crossAxisCount: 2,
-                  crossAxisSpacing: 10.0,
-                  mainAxisSpacing: 12.0,
+                  crossAxisSpacing: 5.0,
+                  mainAxisSpacing: 5.0,
                   itemCount: AppData.productList.length,
                   itemBuilder: (_, i) => PublicProductCard(item: AppData.productList[i]),
                   staggeredTileBuilder: (int index) =>
-                  new StaggeredTile.count(2, index.isEven ? 2 : 1),
+                  new StaggeredTile.fit(2),
     ),
             ),],
-        ),
+        )],
       ),
     );
   }
