@@ -24,9 +24,7 @@ class AppData {
         description: "gdfgqddggqffd dfgsqdgfgfgqdfdfqdfdsqdf dfdsqfsdfdfdfq",
         image: 'assets/introduction_animation/introduction_animation.png',
         category: "Trending Now"),
-  ];
-  static List<Product> cartList = [
-    Product(
+  Product(
         id: 1,
         name: 'Nike Air Max 200',
         price: 240.00,

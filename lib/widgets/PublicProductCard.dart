@@ -2,10 +2,12 @@ import 'package:esouq/Models/ProductModel.dart';
 import 'package:esouq/Tools/GeneralTools.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
-class PublicProductItems extends StatelessWidget {
+class PublicProductCard extends StatelessWidget {
   final Product item;
-  const PublicProductItems({
+  const PublicProductCard({
     Key? key,
     required this.item,
   }) : super(key: key);
@@ -14,67 +16,77 @@ class PublicProductItems extends StatelessWidget {
     /*Navigator.of(context)
         .push(MaterialPageRoute(builder: (_) => ItemDetailsSreen(item: item)));*/
   }
+  String getLeftProduct(int inStock,int ordered){
+    int sub = inStock - ordered;
+    String t = 'Left $sub';
+    return t;
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => onTap(context),
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-        width: GeneralTools.width * 0.25,
-        height: double.infinity,
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.black26, width: 1.0),
+          color: Colors.white,
+          border: Border.all(color: Colors.black26, width: 0.5),
           borderRadius: BorderRadius.circular(15),
         ),
         child: LayoutBuilder(
           builder: (_, constraints) {
             return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Hero(
                   tag: item.hashCode,
-                  child: Image.asset(
-                    item.image,
-                    height: constraints.maxHeight * 0.4,
-                  ),
-                ),
-                SizedBox(height: 10),
-                Text(item.name, style: TextStyle(fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black87,)),
-                Text(item.description, style: TextStyle(fontSize: 10,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black45,)),
-                Spacer(),Wrap(direction: Axis.horizontal,
-                    children :[ Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '\$${item.price}',
-                          style: TextStyle(fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black87,).copyWith(fontWeight: FontWeight.w700),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.all(7),
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Icon(
-                            Icons.add,
-                            size: 20,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),]),
-              ],
+                  child: ClipRRect(
+                      borderRadius:BorderRadius.only(topLeft:Radius.circular(15),topRight:Radius.circular(15),bottomLeft:Radius.circular(0),bottomRight:Radius.circular(0)),
+                      child:Image.asset(
+                        item.image,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      )),
+                ),SizedBox(height: 5),
+                Stack(
+                    alignment: AlignmentDirectional.bottomStart,
+                    children:[Container(
+                        padding: const EdgeInsets.all(5),
+                        child:Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children:[Text(item.name,maxLines:2,overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black54,))
+                              ,Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Expanded(child: Text(
+                                    '\$${item.price}',
+                                    style: TextStyle(fontSize: 15,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,).copyWith(fontWeight: FontWeight.w700),
+                                  )),
+                                  Container(
+                                    padding: const EdgeInsets.all(3),
+                                    decoration: BoxDecoration(
+                                      color: Colors.transparent,
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    child: Icon(
+                                      Icons.more_vert,
+                                      size: 15,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ]))])],
             );
           },
         ),
-      ),
-    );
+      ),);
   }
+
+
 }

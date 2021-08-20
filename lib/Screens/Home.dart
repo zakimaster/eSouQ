@@ -1,20 +1,15 @@
-
-
 import 'package:esouq/Models/AppData.dart';
 import 'package:esouq/Tools/GeneralTools.dart';
-import 'package:esouq/themes/Theme.dart';
-import 'package:esouq/themes/light_color.dart';
 import 'package:esouq/widgets/CategoriesCard.dart';
 import 'package:esouq/widgets/HomeImagesCarousel.dart';
+import 'package:esouq/widgets/PublicProductCard.dart';
 import 'package:esouq/widgets/SearchView.dart';
 import 'package:esouq/widgets/Sections.dart';
 import 'package:esouq/widgets/TopSellProductItem.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -38,10 +33,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery
-          .of(context)
-          .size
-          .height,
+      height: MediaQuery.of(context).size.height,
       child: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         dragStartBehavior: DragStartBehavior.down,
@@ -62,9 +54,9 @@ class _HomeState extends State<Home> {
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Padding(
-                  padding: const EdgeInsets.all(15.0),
+                  padding: const EdgeInsets.fromLTRB(10.0,5.0,10.0,5.0),
                   child: Wrap(
-                    spacing: 15.0,
+                    spacing: 10.0,
                     children: AppData.categories.map((c) {
                       return CategoryCard(
                         title: c.title,
@@ -79,8 +71,8 @@ class _HomeState extends State<Home> {
               ),
             ),SizedBox(height: 15),Section(
                 'Top sell', true
-            ),SizedBox(height: 15),Container(
-              height: GeneralTools(context).getHeight() * 0.25,
+            ),SizedBox(height: 10),Container(
+              height: GeneralTools(context).getHeight() * 0.27,
         child: ListView.separated(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           scrollDirection: Axis.horizontal,
@@ -88,7 +80,20 @@ class _HomeState extends State<Home> {
           itemBuilder: (_, i) => TopSellItems(item: AppData.productList[i]),
           separatorBuilder: (_, __) => SizedBox(width: 10),
         ),
-      )],
+      ),SizedBox(height: 15),Section(
+                'New Arrivals', true
+            ),SizedBox(height: 10),Container(
+              margin: EdgeInsets.all(10),
+              child:  StaggeredGridView.countBuilder(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10.0,
+                  mainAxisSpacing: 12.0,
+                  itemCount: AppData.productList.length,
+                  itemBuilder: (_, i) => PublicProductCard(item: AppData.productList[i]),
+                  staggeredTileBuilder: (int index) =>
+                  new StaggeredTile.count(2, index.isEven ? 2 : 1),
+    ),
+            ),],
         ),
       ),
     );
