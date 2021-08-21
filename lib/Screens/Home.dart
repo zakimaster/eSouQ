@@ -87,13 +87,13 @@ class _HomeState extends State<Home> {
               child:  StaggeredGridView.countBuilder(
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
-                  crossAxisCount: 2,
+                  crossAxisCount:2,
                   crossAxisSpacing: 5.0,
                   mainAxisSpacing: 5.0,
                   itemCount: AppData.productList.length,
                   itemBuilder: (_, i) => PublicProductCard(item: AppData.productList[i]),
                   staggeredTileBuilder: (int index) =>
-                  new StaggeredTile.fit(2),
+                  new StaggeredTile.count(2,index.isEven? 2:1),
     ),
             ),],
         )],
