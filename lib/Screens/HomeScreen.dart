@@ -1,4 +1,8 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:esouq/Screens/MainAccountLoginScreen.dart';
+import 'package:esouq/Screens/MainCartScreen.dart';
+import 'package:esouq/Screens/MainMessagesScreen.dart';
+import 'package:esouq/Screens/MainSettings.dart';
 import 'package:flutter/material.dart';
 
 import 'Home.dart';
@@ -16,10 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final _screens = [
     Home(),
-    const Scaffold(body: Center(child: Text('Cart'))),
-    const Scaffold(body: Center(child: Text('Messages'))),
-    const Scaffold(body: Center(child: Text('Account'))),
-    const Scaffold(body: Center(child: Text('Settings'))),
+    MainCart(),
+    MainMessages(),
+    MainAccountLogin(),
+    MainSettings(),
   ];
 
   @override
