@@ -24,8 +24,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child:Scaffold(
-      body: ListView(
+    return SafeArea(
+        child:Scaffold(
+      body: Container(
+          //margin: EdgeInsets.only(bottom: 45),
+          child:ListView(
         scrollDirection: Axis.vertical,
             children : _screens
                 .asMap()
@@ -37,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             )).values
                 .toList()
-      ),bottomNavigationBar: BottomNavyBar(
+      )),bottomNavigationBar: BottomNavyBar(
       backgroundColor: Colors.white,
         selectedIndex: _selectedIndex,
         onItemSelected: (i) => setState(() => _selectedIndex = i),

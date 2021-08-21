@@ -29,13 +29,17 @@ class _HomeState extends State<Home> {
     );*/
   }
 
+  ScrollController _controller = new ScrollController();
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
       child: ListView(
-        physics: BouncingScrollPhysics(),
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+        controller: _controller,
         dragStartBehavior: DragStartBehavior.down,
         children:[ Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,15 +89,17 @@ class _HomeState extends State<Home> {
             ),SizedBox(height: 10),Container(
               margin: EdgeInsets.all(10),
               child:  StaggeredGridView.countBuilder(
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
+                  primary: false,
                   scrollDirection: Axis.vertical,
-                  crossAxisCount:2,
+                  crossAxisCount: 2,
                   crossAxisSpacing: 5.0,
                   mainAxisSpacing: 5.0,
                   itemCount: AppData.productList.length,
-                  itemBuilder: (_, i) => PublicProductCard(item: AppData.productList[i]),
+                  itemBuilder: (_, i) => PublicProductCard(item: AppData.productList[i],),
                   staggeredTileBuilder: (int index) =>
-                  new StaggeredTile.count(2,index.isEven? 2:1),
+                  new StaggeredTile.fit(1),
     ),
             ),],
         )],
