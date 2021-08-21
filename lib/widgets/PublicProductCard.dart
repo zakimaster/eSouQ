@@ -23,42 +23,44 @@ class PublicProductCard extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => onTap(context),
-      child: Stack(
-        children: [
+  Widget build(BuildContext context) =>
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+    children: <Widget>[
+      Stack(
+        children: <Widget>[
           ClipRRect(
-            child: Image.asset(item.image),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(8),
+            child: Image.asset(item.image, fit: BoxFit.cover),
           ),
-          Positioned(
-            bottom: 5,
-            left: 10,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  item.name,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                Text(
-                  '${item.price}',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                  ),
-                ),
-              ],
+          Material(
+            color: Colors.white,
+            shape: const RoundedRectangleBorder(
+              borderRadius:
+              BorderRadius.only(bottomRight: Radius.circular(8)),
             ),
+            child: Icon(Icons.wifi_calling_sharp, color: Colors.black.withOpacity(0.8)),
           )
         ],
-      ),);
-  }
+      ),
+      buildInfo(context),
+    ],
+  );
+
+  Widget buildInfo(BuildContext context) => Container(
+    margin: EdgeInsets.fromLTRB(5,0,5,10),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        SizedBox(height: 4),
+        Text(item.name, style: TextStyle(fontWeight: FontWeight.bold)),
+        SizedBox(height: 4),
+        Text('\$${item.price}', style: Theme.of(context).textTheme.caption),
+      ],
+    ),
+  );
 
 
 }
