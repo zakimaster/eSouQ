@@ -149,7 +149,7 @@ class _MainCartListState extends State<MainCartList>{
 
         }),
         shrinkWrap: true,
-        primary: false,
+        //primary: false,
         physics: NeverScrollableScrollPhysics(),
       );
     }
@@ -183,7 +183,7 @@ class _MainCartListState extends State<MainCartList>{
         ),child:
         Row(mainAxisAlignment:MainAxisAlignment.spaceBetween,children:[
           Center(child:
-          Text('\$145.50',style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold),),),
+          Text('\$$totalAmount',style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold),),),
           checkOutBtn(),
 
       ]),)]);
