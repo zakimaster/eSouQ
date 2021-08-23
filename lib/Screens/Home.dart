@@ -99,10 +99,13 @@ class _HomeState extends State<Home> {
                   itemCount: AppData.productList.length,
                   itemBuilder: (_, i) => PublicProductCard(item: AppData.productList[i],),
                   staggeredTileBuilder: (int index) => new StaggeredTile.fit(1),),
-            ),],
-        )],
-      ),
-    );
+
+    ),
+
+            ],)],));
+
+
+
   }
 
 }

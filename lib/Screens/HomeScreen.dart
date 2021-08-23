@@ -1,4 +1,8 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:esouq/Screens/MainAccountLoginScreen.dart';
+import 'package:esouq/Screens/MainCartScreen.dart';
+import 'package:esouq/Screens/MainMessagesScreen.dart';
+import 'package:esouq/Screens/MainSettings.dart';
 import 'package:flutter/material.dart';
 
 import 'Home.dart';
@@ -10,44 +14,44 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  static const double _playerMinHeight = 60.0;
 
   int _selectedIndex = 0;
 
   final _screens = [
     Home(),
-    const Scaffold(body: Center(child: Text('Cart'))),
-    const Scaffold(body: Center(child: Text('Messages'))),
-    const Scaffold(body: Center(child: Text('Account'))),
-    const Scaffold(body: Center(child: Text('Settings'))),
+    MainCartList(),
+    MainMessages(),
+    MainAccountLogin(),
+    MainSettings(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child:Scaffold(
-      body: Container(
-          //margin: EdgeInsets.only(bottom: 45),
-          child:ListView(
-        scrollDirection: Axis.vertical,
-            children : _screens
-                .asMap()
-                .map((i, screen) => MapEntry(
-              i,
-              Offstage(
-                offstage: _selectedIndex != i,
-                child: screen,
-              ),
-            )).values
-                .toList()
-      )),bottomNavigationBar: BottomNavyBar(
-      backgroundColor: Colors.white,
-        selectedIndex: _selectedIndex,
-        onItemSelected: (i) => setState(() => _selectedIndex = i),
-         items: BBItems,
-    ),
-    ));
+          body: Container(
+            //margin: EdgeInsets.only(bottom: 45),
+              child:ListView(
+                  scrollDirection: Axis.vertical,
+                  children : _screens
+                      .asMap()
+                      .map((i, screen) => MapEntry(
+                    i,
+                    Offstage(
+                      offstage: _selectedIndex != i,
+                      child: screen,
+                    ),
+                  )).values
+                      .toList()
+              )),bottomNavigationBar: BottomNavyBar(
+          backgroundColor: Colors.white,
+          selectedIndex: _selectedIndex,
+          onItemSelected: (i) => setState(() => _selectedIndex = i),
+          items: BBItems,
+        ),
+        ));
   }
+
 
   List<BottomNavyBarItem> BBItems=[
     BottomNavyBarItem(

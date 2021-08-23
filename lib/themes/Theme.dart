@@ -1,48 +1,82 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:nb_utils/nb_utils.dart';
 
-import 'light_color.dart';
+import 'Colors.dart';
 
-class AppTheme {
-  const AppTheme();
-  static ThemeData lightTheme = ThemeData(
-      backgroundColor: LightColor.background,
-      primaryColor: LightColor.background,
-      cardTheme: CardTheme(color: LightColor.background),
-      textTheme: TextTheme(bodyText1: TextStyle(color: LightColor.black)),
-      iconTheme: IconThemeData(color: LightColor.iconColor),
-      bottomAppBarColor: LightColor.background,
-      dividerColor: LightColor.lightGrey,
-      primaryTextTheme:
-      TextTheme(bodyText1: TextStyle(color: LightColor.titleTextColor)));
+class AppThemeData {
+  //
+  AppThemeData._();
 
-  static TextStyle titleStyle =
-  const TextStyle(color: LightColor.titleTextColor, fontSize: 16);
-  static TextStyle subTitleStyle =
-  const TextStyle(color: LightColor.subTitleTextColor, fontSize: 12);
-
-  static TextStyle h1Style =
-  const TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
-  static TextStyle h2Style = const TextStyle(fontSize: 22);
-  static TextStyle h3Style = const TextStyle(fontSize: 20);
-  static TextStyle h4Style = const TextStyle(fontSize: 18);
-  static TextStyle h5Style = const TextStyle(fontSize: 16);
-  static TextStyle h6Style = const TextStyle(fontSize: 14);
-
-  static List<BoxShadow> shadow = <BoxShadow>[
-    BoxShadow(color: Color(0xfff8f8f8), blurRadius: 10, spreadRadius: 15),
-  ];
-
-  static EdgeInsets padding =
-  const EdgeInsets.symmetric(horizontal: 20, vertical: 10);
-  static EdgeInsets hPadding = const EdgeInsets.symmetric(
-    horizontal: 10,
+  static final ThemeData lightTheme = ThemeData(
+    scaffoldBackgroundColor: scaffoldLightColor,
+    primaryColor: appColorPrimary,
+    primaryColorDark: appColorPrimary,
+    errorColor: Colors.red,
+    hoverColor: Colors.white54,
+    dividerColor: viewLineColor,
+    fontFamily: GoogleFonts.nunito().fontFamily,
+    appBarTheme: AppBarTheme(
+      color: appLayout_background,
+      iconTheme: IconThemeData(color: textPrimaryColor),
+      brightness: Brightness.light,
+      systemOverlayStyle: SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark),
+    ),
+    textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.black),
+    colorScheme: ColorScheme.light(primary: appColorPrimary, primaryVariant: appColorPrimary),
+    cardTheme: CardTheme(color: Colors.white),
+    iconTheme: IconThemeData(color: textPrimaryColor),
+    bottomSheetTheme: BottomSheetThemeData(backgroundColor: whiteColor),
+    textTheme: TextTheme(
+      button: TextStyle(color: appColorPrimary),
+      headline6: TextStyle(color: textPrimaryColor),
+      subtitle2: TextStyle(color: textSecondaryColor),
+    ),
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+  ).copyWith(
+    pageTransitionsTheme: PageTransitionsTheme(builders: <TargetPlatform, PageTransitionsBuilder>{
+      TargetPlatform.android: ZoomPageTransitionsBuilder(),
+      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.linux: ZoomPageTransitionsBuilder(),
+      TargetPlatform.macOS: ZoomPageTransitionsBuilder(),
+    }),
   );
 
-  static double fullWidth(BuildContext context) {
-    return MediaQuery.of(context).size.width;
-  }
-
-  static double fullHeight(BuildContext context) {
-    return MediaQuery.of(context).size.height;
-  }
+  static final ThemeData darkTheme = ThemeData(
+    scaffoldBackgroundColor: appBackgroundColorDark,
+    highlightColor: appBackgroundColorDark,
+    errorColor: Color(0xFFCF6676),
+    appBarTheme: AppBarTheme(
+      color: appBackgroundColorDark,
+      iconTheme: IconThemeData(color: blackColor),
+      brightness: Brightness.dark,
+      systemOverlayStyle: SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark),
+    ),
+    primaryColor: color_primary_black,
+    accentColor: whiteColor,
+    dividerColor: Color(0xFFDADADA).withOpacity(0.3),
+    primaryColorDark: color_primary_black,
+    textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.white),
+    hoverColor: Colors.black12,
+    fontFamily: GoogleFonts.nunito().fontFamily,
+    bottomSheetTheme: BottomSheetThemeData(backgroundColor: appBackgroundColorDark),
+    primaryTextTheme: TextTheme(headline6: primaryTextStyle(color: Colors.white), overline: primaryTextStyle(color: Colors.white)),
+    colorScheme: ColorScheme.dark(primary: appBackgroundColorDark, onPrimary: cardBackgroundBlackDark, primaryVariant: color_primary_black),
+    cardTheme: CardTheme(color: cardBackgroundBlackDark),
+    iconTheme: IconThemeData(color: whiteColor),
+    textTheme: TextTheme(
+      button: TextStyle(color: color_primary_black),
+      headline6: TextStyle(color: whiteColor),
+      subtitle2: TextStyle(color: Colors.white54),
+    ),
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+  ).copyWith(
+    pageTransitionsTheme: PageTransitionsTheme(builders: <TargetPlatform, PageTransitionsBuilder>{
+      TargetPlatform.android: ZoomPageTransitionsBuilder(),
+      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.linux: ZoomPageTransitionsBuilder(),
+      TargetPlatform.macOS: ZoomPageTransitionsBuilder(),
+    }),
+  );
 }

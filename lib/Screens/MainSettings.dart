@@ -1,18 +1,15 @@
 
 import 'package:flutter/cupertino.dart';
 
-class MainCartList extends StatefulWidget{
-
+class MainSettings extends StatefulWidget{
   @override
-  _MainCartListState createState() => _MainCartListState();
+  _MainSettingsState createState() => _MainSettingsState();
 }
 
-class _MainCartListState extends State<MainCartList>{
-
+class _MainSettingsState extends State<MainSettings> {
   @override
   Widget build(BuildContext context) {
-
-    return Container();
+    return Column();
   }
 
 }
