@@ -76,7 +76,7 @@ class _HomeState extends State<Home> {
             ),SizedBox(height: 15),Section(
                 'Top sell', true
             ),SizedBox(height: 10),Container(
-              height: GeneralTools(context).getHeight() * 0.27,
+              height: GeneralTools(context).getHeight() * 0.33,
         child: ListView.separated(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           scrollDirection: Axis.horizontal,
@@ -93,14 +93,12 @@ class _HomeState extends State<Home> {
                   shrinkWrap: true,
                   primary: false,
                   scrollDirection: Axis.vertical,
-                  crossAxisCount: 2,
+                  crossAxisCount:2,
                   crossAxisSpacing: 5.0,
                   mainAxisSpacing: 5.0,
                   itemCount: AppData.productList.length,
                   itemBuilder: (_, i) => PublicProductCard(item: AppData.productList[i],),
-                  staggeredTileBuilder: (int index) =>
-                  new StaggeredTile.fit(1),
-    ),
+                  staggeredTileBuilder: (int index) => new StaggeredTile.fit(1),),
             ),],
         )],
       ),
