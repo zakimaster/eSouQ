@@ -1,12 +1,16 @@
 
+import 'package:esouq/Screens/SearchScreen.dart';
 import 'package:esouq/themes/Theme.dart';
-import 'package:esouq/themes/light_color.dart';
+import 'package:esouq/themes/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:nb_utils/nb_utils.dart';
 
 class SearchBar extends StatelessWidget {
 
-  Widget _icon(IconData icon, {Color color = LightColor.iconColor}) {
+  String searchText = '';
+
+  Widget _icon(IconData icon, {Color color = iconColorPrimary}) {
     Color BackColor = Colors.white;
     return Container(
         padding: EdgeInsets.all(10),
@@ -47,8 +51,18 @@ class SearchBar extends StatelessWidget {
             fontSize: 14.0,
           ),
           border: InputBorder.none,
-        ),
-      )),
+        ),keyboardType: TextInputType.name,
+        textInputAction: TextInputAction.done,
+        onChanged: (String searchTxt) {
+          searchText = searchTxt;
+          if (searchTxt == '') {
+            hideKeyboard(context);
+          }
+          //setState(() {});
+        }
+      ).onTap(() {
+      SearchScreen().launch(context);
+    })),
     SizedBox(width: 20),
     _icon(Icons.camera_alt_outlined, color: Colors.black26)]));
 

@@ -1,3 +1,5 @@
+import 'package:esouq/Models/CartListModel.dart';
+
 import 'ProductModel.dart';
 import 'category.dart';
 
@@ -73,6 +75,36 @@ class AppData {
     //     isliked: false,
     //     image: 'assets/small_tilt_shoe_2.png',
     //     category: "Trending Now"),
+  ];
+
+  static List<CartListModel> cartList = [
+    CartListModel(
+        id: 1,
+        name: 'Nike Air Max 200',
+        price: 240.00,
+        discountPrice: 200.00,
+        orderedTime: new DateTime.now(),
+        quantity: 500,
+        image: 'assets/introduction_animation/care_image.png',
+        category: "Trending Now"),
+    CartListModel(
+        id: 2,
+        name: 'Nike Air Max 400',
+        price: 160.00,
+        discountPrice: 140.00,
+        orderedTime: new DateTime.now(),
+        quantity: 80,
+        image: 'assets/introduction_animation/care_image.png',
+        category: "Trending Now"),
+    CartListModel(
+        id: 3,
+        name: 'Nike Air Max 700',
+        price: 90.00,
+        discountPrice: 85.00,
+        orderedTime: new DateTime.now(),
+        quantity: 54,
+        image: 'assets/introduction_animation/care_image.png',
+        category: "Trending Now"),
   ];
 
   static List<Category> categories = [

@@ -1,4 +1,4 @@
-import 'package:esouq/themes/light_color.dart';
+import 'package:esouq/themes/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'bottom_curved_Painter.dart';
@@ -76,7 +76,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
               duration: Duration(milliseconds: 300),
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                  color: isEnable ? LightColor.orange : Colors.white,
+                  color: isEnable ? appDarkRed : Colors.white,
                   boxShadow: <BoxShadow>[
                     BoxShadow(
                       color: isEnable ? Color(0xfffeece2) : Colors.white,
@@ -90,7 +90,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
                 opacity: isEnable ? _yController.value : 1,
                 child: Icon(icon,
                     color: isEnable
-                        ? LightColor.background
+                        ? iconColorPrimary
                         : Theme.of(context).iconTheme.color),
               )),
         ),

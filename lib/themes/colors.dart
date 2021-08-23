@@ -1,54 +1,44 @@
-// Copyright (c) 2020 Aniket Malik [aniketmalikwork@gmail.com]
-// All Rights Reserved.
-//
-// NOTICE: All information contained herein is, and remains the
-// property of Aniket Malik. The intellectual and technical concepts
-// contained herein are proprietary to Aniket Malik and are protected
-// by trade secret or copyright law.
-//
-// Dissemination of this information or reproduction of this material
-// is strictly forbidden unless prior written permission is obtained from
-// Aniket Malik.
-
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
-/// All the colors used in the application are defined here
-///
-/// Update the colors as desired with their dark mode variations below them.
-abstract class AppColors {
-  static const Color primary = Color(0xFF497FF3);
-  static const Color primaryDark = Colors.green;
 
-  static const Color secondary = Color(0xFF0CA8B0);
-  static const Color secondaryDark = Color(0xFF0CA8B0);
+// Light Theme Colors
+const appColorPrimary = Color(0xFF0A79DF);
+const appColorPrimaryDark = Color(0xFF0A79DF);
+const appColorAccent = Color(0xFF03DAC5);
+const appTextColorPrimary = Color(0xFF212121);
+const iconColorPrimary = Color(0xFFFFFFFF);
+const appTextColorSecondary = Color(0xFF5A5C5E);
+const iconColorSecondary = Color(0xFFA8ABAD);
+const appLayout_background = Color(0xFFf8f8f8);
+const appWhite = Color(0xFFFFFFFF);
+const appLight_purple = Color(0xFFdee1ff);
+const appLight_orange = Color(0xFFffddd5);
+const appLight_parrot_green = Color(0xFFb4ef93);
+const appIconTintCherry = Color(0xFFffddd5);
+const appIconTint_sky_blue = Color(0xFF73d8d4);
+const appIconTint_mustard_yellow = Color(0xFFffc980);
+const appIconTintDark_purple = Color(0xFF8998ff);
+const appTxtTintDark_purple = Color(0xFF515BBE);
+const appIconTintDarkCherry = Color(0xFFf2866c);
+const appIconTintDark_sky_blue = Color(0xFF73d8d4);
+const appDark_parrot_green = Color(0xFF5BC136);
+const appDarkRed = Color(0xFFF06263);
+const appLightRed = Color(0xFFF89B9D);
+const appCat1 = Color(0xFF8998FE);
+const appCat2 = Color(0xFFFF9781);
+const appCat3 = Color(0xFF73D7D3);
+const appCat4 = Color(0xFF87CEFA);
+const appCat5 = appColorPrimary;
+const appShadowColor = Color(0x95E9EBF0);
+const appColorPrimaryLight = Color(0xFFF9FAFF);
+const appSecondaryBackgroundColor = Color(0xFF131d25);
+const appDividerColor = Color(0xFFDADADA);
 
-  static const Color tabbar = Color(0xFF24AAF0);
-  static const Color tabbarDark = Color(0xFF66BB6A);
-
-  static const Color accent = Color(0xFF24AAF0);
-  static const Color accentDark = Color(0xFF66BB6A);
-
-  static const Color buttonColor = Color(0xFF24AAF0);
-  static const Color buttonColorDark = Color(0xFF24AAF0);
-
-  static const Color buttonHighlightColor = Color(0xFF7EA5FF);
-  static const Color buttonHighlightColorDark = Color(0xFF7EA5FF);
-
-  static const Color buttonSplashColor = Color(0xFF7EA5FF);
-  static const Color buttonSplashColorDark = Color(0xFF7EA5FF);
-
-  // Product On Sale Banner color
-  static const Color productItemCardOnSaleBanner = Color(0xCC4CAF50);
-  static const Color productItemCardOnSaleBannerDark = Color(0xCC4CAF50);
-
-  // Disabled Color
-  static const Color mDisabledColor = Color(0xFFD2D2D2);
-
-  static const Color mWhite = Color(0xFFF4F5FA);
-  static const Color errorText = Color(0xFFEF5350);
-  static const Color lightGrey = Color(0xFFA8A8A8);
-  static const Color backgroundDark = Color.fromRGBO(42, 42, 42, 1);
-  static const Color backgroundLight = Color.fromRGBO(248, 248, 248, 1);
-}
+// Dark Theme Colors
+const appBackgroundColorDark = Color(0xFF131d25);
+const cardBackgroundBlackDark = Color(0xFF1D2939);
+const color_primary_black = Color(0xFF131d25);
+const appColorPrimaryDarkLight = Color(0xFFF9FAFF);
+const iconColorPrimaryDark = Color(0xFF212121);
+const iconColorSecondaryDark = Color(0xFFA8ABAD);
+const appShadowColorDark = Color(0x1A3E3942);
