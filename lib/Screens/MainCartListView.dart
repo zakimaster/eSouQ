@@ -61,10 +61,10 @@ class MainCartListViewState extends State<MainCartListView> {
 
   @override
   Widget build(BuildContext context) {
-
     Widget itemCart(CartListModel data) {
       return Container(
-        decoration: boxDecorationRoundedWithShadow(8, backgroundColor: appStore.appBarColor!),
+        decoration: boxDecorationRoundedWithShadow(8,
+            backgroundColor: appStore.appBarColor!),
         margin: EdgeInsets.all(8),
         padding: EdgeInsets.all(8),
         child: Row(
@@ -166,15 +166,18 @@ class MainCartListViewState extends State<MainCartListView> {
           Container(
             margin: EdgeInsets.all(16),
             padding: EdgeInsets.all(8),
-            decoration: boxDecoration(showShadow: true, bgColor: appStore.scaffoldBackground),
+            decoration: boxDecoration(
+                showShadow: true, bgColor: appStore.scaffoldBackground),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                totalAmountWidget(subTotal, shippingCharges, totalAmount).visible(widget.mIsEditable!),
+                totalAmountWidget(subTotal, shippingCharges, totalAmount)
+                    .visible(widget.mIsEditable!),
                 Container(
                   alignment: Alignment.center,
                   padding: EdgeInsets.all(12),
-                  decoration: boxDecorationRoundedWithShadow(8, backgroundColor: appColorPrimary),
+                  decoration: boxDecorationRoundedWithShadow(8,
+                      backgroundColor: appColorPrimary),
                   child: Text('Checkout', style: boldTextStyle(color: white)),
                 ).onTap(() {
                   //DTOrderSummaryScreen(data).launch(context);
