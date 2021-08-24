@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:esouq/Models/ChatMessagesModel.dart';
 import 'package:esouq/Models/ListModel.dart';
+import 'package:esouq/Models/MessageModel.dart';
 import 'package:esouq/Tools/AppConstants.dart';
 import 'package:esouq/Tools/GeneralTools.dart';
 import 'package:esouq/themes/colors.dart';
@@ -84,7 +85,7 @@ class ChatMessageWidget extends StatelessWidget {
   }) : super(key: key);
 
   final bool isMe;
-  final ChatMessageModel data;
+  final MessageModel data;
 
   @override
   Widget build(BuildContext context) {

@@ -17,10 +17,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   int _selectedIndex = 0;
 
-  final _screens = [
+  final List<Widget>_screens = [
     Home(),
     MainCartList(),
-    MainMessages(),
+    MainChatScreen(),
     MainAccountLogin(),
     MainSettings(),
   ];
@@ -31,19 +31,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child:Scaffold(
           body: Container(
             //margin: EdgeInsets.only(bottom: 45),
-              child:ListView(
-                  scrollDirection: Axis.vertical,
-                  children : _screens
-                      .asMap()
-                      .map((i, screen) => MapEntry(
-                    i,
-                    Offstage(
-                      offstage: _selectedIndex != i,
-                      child: screen,
-                    ),
-                  )).values
-                      .toList()
-              )),bottomNavigationBar: BottomNavyBar(
+              child:_screens[_selectedIndex]),
+          bottomNavigationBar: BottomNavyBar(
           backgroundColor: Colors.white,
           selectedIndex: _selectedIndex,
           onItemSelected: (i) => setState(() => _selectedIndex = i),

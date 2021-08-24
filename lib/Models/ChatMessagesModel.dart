@@ -1,11 +1,13 @@
 class ChatMessageModel {
-  // ignore: non_constant_identifier_names
-  int? Sender_id;
-  // ignore: non_constant_identifier_names
-  int? Recevier_id;
+
+  int? senderId;
+  int? recevierId;
+  String? senderName;
+  int? unreadCount;
   String? msg;
+  String? image;
   String? time;
 
   // ignore: non_constant_identifier_names
-  ChatMessageModel({this.Sender_id, this.Recevier_id, this.msg, this.time});
+  ChatMessageModel({this.senderId, this.recevierId,this.senderName, this.msg, this.time,this.image,this.unreadCount});
 }
