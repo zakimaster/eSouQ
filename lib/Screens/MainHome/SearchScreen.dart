@@ -1,11 +1,11 @@
-import 'package:esouq/Tools/AppConstants.dart';
+
 import 'package:esouq/themes/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-import '../main.dart';
+import '../../main.dart';
 
 class SearchScreen extends SearchDelegate {
   final String? hintText;

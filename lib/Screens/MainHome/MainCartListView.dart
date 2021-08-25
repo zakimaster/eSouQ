@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-import '../main.dart';
+import '../../main.dart';
 
 class MainCartListView extends StatefulWidget {
   static String tag = '/MainCartListView';

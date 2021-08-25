@@ -1,9 +1,9 @@
 import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:esouq/Config.dart';
 import 'package:esouq/Models/ChatMessagesModel.dart';
 import 'package:esouq/Models/ListModel.dart';
 import 'package:esouq/Models/MessageModel.dart';
-import 'package:esouq/Tools/AppConstants.dart';
 import 'package:esouq/Tools/GeneralTools.dart';
 import 'package:esouq/themes/colors.dart';
 import 'package:esouq/widgets/utils/clusteringGoogleMaps/lat_lang_geohash.dart';
@@ -122,7 +122,7 @@ class ChatMessageWidget extends StatelessWidget {
 
 Widget text(
     String? text, {
-      var fontSize = textSizeLargeMedium,
+      var fontSize = Config.textSizeLargeMedium,
       Color? textColor,
       var fontFamily,
       var isCentered = false,
@@ -283,7 +283,7 @@ class ExampleItemWidget extends StatelessWidget {
 
 String convertDate(date) {
   try {
-    return date != null ? DateFormat(dateFormat).format(DateTime.parse(date)) : '';
+    return date != null ? DateFormat(Config.dateFormat).format(DateTime.parse(date)) : '';
   } catch (e) {
     print(e);
     return '';
@@ -314,11 +314,11 @@ Widget? Function(BuildContext, String) placeholderWidgetFn() => (_, s) => placeh
 Widget placeholderWidget() => Image.asset('images/LikeButton/image/grey.jpg', fit: BoxFit.cover);
 
 BoxConstraints dynamicBoxConstraints({double? maxWidth}) {
-  return BoxConstraints(maxWidth: maxWidth ?? applicationMaxWidth);
+  return BoxConstraints(maxWidth: maxWidth ?? Config.applicationMaxWidth);
 }
 
 double dynamicWidth(BuildContext context) {
-  return isMobile ? context.width() : applicationMaxWidth;
+  return isMobile ? context.width() : Config.applicationMaxWidth;
 }
 
 /*class ContainerX extends StatelessWidget {
@@ -346,15 +346,15 @@ double dynamicWidth(BuildContext context) {
 String? getBannerAdUnitId() {
   if (kReleaseMode) {
     if (Platform.isIOS) {
-      return bannerAdIdForIos;
+      return Config.bannerAdIdForIos;
     } else if (Platform.isAndroid) {
-      return bannerAdIdForAndroidRelease;
+      return Config.bannerAdIdForAndroidRelease;
     }
   } else {
     if (Platform.isIOS) {
-      return bannerAdIdForIos;
+      return Config.bannerAdIdForIos;
     } else if (Platform.isAndroid) {
-      return bannerAdIdForAndroid;
+      return Config.bannerAdIdForAndroid;
     }
   }
   return null;
@@ -363,15 +363,15 @@ String? getBannerAdUnitId() {
 String? getInterstitialAdUnitId() {
   if (kReleaseMode) {
     if (Platform.isIOS) {
-      return interstitialAdIdForIos;
+      return Config.interstitialAdIdForIos;
     } else if (Platform.isAndroid) {
-      return InterstitialAdIdForAndroidRelease;
+      return Config.InterstitialAdIdForAndroidRelease;
     }
   } else {
     if (Platform.isIOS) {
-      return interstitialAdIdForIos;
+      return Config.interstitialAdIdForIos;
     } else if (Platform.isAndroid) {
-      return InterstitialAdIdForAndroid;
+      return Config.InterstitialAdIdForAndroid;
     }
   }
   return null;

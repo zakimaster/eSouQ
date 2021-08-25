@@ -1,7 +1,7 @@
 import 'package:esouq/Models/AppData.dart';
 import 'package:esouq/Models/ChatMessagesModel.dart';
 import 'package:esouq/Models/MessageModel.dart';
-import 'package:esouq/Screens/MainChatConversation.dart';
+import 'package:esouq/Screens/MainHome/MainChatConversation.dart';
 import 'package:esouq/themes/colors.dart';
 import 'package:esouq/widgets/GeneraleWidgets.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-import '../main.dart';
+import '../../main.dart';
 
 class MainChatScreen extends StatefulWidget {
 

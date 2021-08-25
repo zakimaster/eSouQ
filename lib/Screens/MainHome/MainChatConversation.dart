@@ -8,7 +8,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:intl/intl.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-import '../main.dart';
+import '../../main.dart';
 
 class MainChatConversationScreen extends StatefulWidget {
 

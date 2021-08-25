@@ -1,7 +1,9 @@
+import 'package:esouq/Screens/CustomerScreens/CostumerSignInScreen.dart';
 import 'package:esouq/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nb_utils/nb_utils.dart';
 
 class MainAccountLogin extends StatefulWidget {
   @override
@@ -53,7 +55,9 @@ class _MainAccountLoginState extends State<MainAccountLogin> {
               width: 15,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                CustomerSignInScreen().launch(context);
+              },
               child: Icon(
                 Icons.account_circle_outlined,
                 color: Colors.black45,

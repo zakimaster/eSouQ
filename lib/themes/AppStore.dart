@@ -1,8 +1,8 @@
-import 'package:esouq/Tools/AppConstants.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:nb_utils/nb_utils.dart';
 
+import '../Config.dart';
 import 'colors.dart';
 
 part 'AppStore.g.dart';
@@ -90,7 +90,7 @@ abstract class AppStoreBase with Store {
       setStatusBarColor(Colors.white);
     }
 
-    setValue(isDarkModeOnPref, isDarkModeOn);
+    setValue(Config.isDarkModeOnPref, isDarkModeOn);
   }
 
   @action

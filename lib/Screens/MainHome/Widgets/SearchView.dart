@@ -1,4 +1,4 @@
-import 'package:esouq/Screens/SearchScreen.dart';
+import 'package:esouq/Screens/MainHome/SearchScreen.dart';
 import 'package:esouq/themes/Theme.dart';
 import 'package:esouq/themes/colors.dart';
 import 'package:flutter/cupertino.dart';

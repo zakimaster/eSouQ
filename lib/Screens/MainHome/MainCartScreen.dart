@@ -8,7 +8,7 @@ import 'package:flutter/painting.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../main.dart';
+import '../../main.dart';
 import 'MainCartListView.dart';
 
 class MainCartList extends StatefulWidget {

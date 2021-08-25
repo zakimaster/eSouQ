@@ -1,8 +1,8 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:esouq/Screens/MainAccountLoginScreen.dart';
-import 'package:esouq/Screens/MainCartScreen.dart';
-import 'package:esouq/Screens/MainMessagesScreen.dart';
-import 'package:esouq/Screens/MainSettings.dart';
+import 'package:esouq/Screens/MainHome/MainAccountLoginScreen.dart';
+import 'package:esouq/Screens/MainHome/MainCartScreen.dart';
+import 'package:esouq/Screens/MainHome/MainMessagesScreen.dart';
+import 'package:esouq/Screens/MainHome/MainSettings.dart';
 import 'package:flutter/material.dart';
 
 import 'Home.dart';

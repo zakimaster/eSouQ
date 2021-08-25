@@ -1,15 +1,13 @@
 import 'dart:math';
-
 import 'package:esouq/Models/CartListModel.dart';
-import 'package:esouq/Tools/AppConstants.dart';
-
+import '../Config.dart';
 import 'AddressListModel.dart';
 import 'ChatMessagesModel.dart';
+import 'FAQ.dart';
 import 'MessageModel.dart';
 import 'ProductModel.dart';
 import 'ReviewModel.dart';
 import 'category.dart';
-
 
 const sender_id = 1;
 const receiver_id = 2;
@@ -37,7 +35,7 @@ class AppData {
         description: "gdfgqddggqffd dfgsqdgfgfgqdfdfqdfdsqdf dfdsqfsdfdfdfq",
         image: 'assets/introduction_animation/introduction_animation.png',
         category: "Trending Now"),
-  Product(
+    Product(
         id: 1,
         name: 'Nike Air Max 200',
         price: 240.00,
@@ -160,7 +158,7 @@ class AppData {
     c1.senderName = 'William';
     c1.image = 'assets/user.png';
     c1.time = '1:43 AM';
-    c1.msg = LoremText;
+    c1.msg = Config.LoremText;
     c1.unreadCount = Random().nextInt(20);
     list.add(c1);
 
@@ -168,7 +166,7 @@ class AppData {
     c2.senderName = 'Benjamin';
     c2.image = 'assets/user.png';
     c2.time = '4:43 AM';
-    c2.msg = LoremText;
+    c2.msg = Config.LoremText;
     c2.unreadCount = Random().nextInt(20);
     list.add(c2);
 
@@ -176,7 +174,7 @@ class AppData {
     c3.senderName = 'Emma';
     c3.image = 'assets/user.png';
     c3.time = '7:03 PM';
-    c3.msg = LoremText;
+    c3.msg = Config.LoremText;
     c3.unreadCount = Random().nextInt(20);
     list.add(c3);
 
@@ -184,7 +182,7 @@ class AppData {
     c4.senderName = 'Isabella';
     c4.image = 'assets/user.png';
     c4.time = '2:43 PM';
-    c4.msg = LoremText;
+    c4.msg = Config.LoremText;
     c4.unreadCount = Random().nextInt(20);
     list.add(c4);
 
@@ -192,7 +190,7 @@ class AppData {
     c5.senderName = 'John Smith';
     c5.image = 'assets/user.png';
     c5.time = '2:43 PM';
-    c5.msg = LoremText;
+    c5.msg = Config.LoremText;
     c5.unreadCount = Random().nextInt(20);
     list.add(c5);
 
@@ -374,48 +372,78 @@ class AppData {
 
     ReviewModel r1 = ReviewModel();
     r1.name = "John smith";
-    r1.comment = LoremText;
+    r1.comment = Config.LoremText;
     r1.ratting = 2.0;
     list.add(r1);
     ReviewModel r2 = ReviewModel();
     r2.name = "Lora";
-    r2.comment = LoremText;
+    r2.comment = Config.LoremText;
     r2.ratting = 4.0;
     list.add(r2);
     ReviewModel r3 = ReviewModel();
     r3.name = "Isabella";
-    r3.comment = LoremText;
+    r3.comment = Config.LoremText;
     r3.ratting = 5.0;
     list.add(r3);
     ReviewModel r4 = ReviewModel();
     r4.name = "Emma";
-    r4.comment = LoremText;
+    r4.comment = Config.LoremText;
     r4.ratting = 3.0;
     list.add(r4);
     ReviewModel r5 = ReviewModel();
     r5.name = "John";
-    r5.comment = LoremText;
+    r5.comment = Config.LoremText;
     r5.ratting = 5.0;
     list.add(r5);
     ReviewModel r6 = ReviewModel();
     r6.name = "Nora";
-    r6.comment = LoremText;
+    r6.comment = Config.LoremText;
     r6.ratting = 3.0;
     list.add(r6);
     ReviewModel r7 = ReviewModel();
     r7.name = "Nora";
-    r7.comment = LoremText;
+    r7.comment = Config.LoremText;
     r7.ratting = 3.0;
     list.add(r7);
     ReviewModel r8 = ReviewModel();
     r8.name = "John";
-    r8.comment = LoremText;
+    r8.comment = Config.LoremText;
     r8.ratting = 5.0;
     list.add(r8);
 
     return list;
   }
 
+  List<FAQ> getFaq() {
+    List<FAQ> list = [];
+    list.add(FAQ(
+        title: "How to delete conitnue watching",
+        subTitle:
+            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ",
+        isExpanded: false));
+    list.add(FAQ(
+        title: "How to delete conitnue watching",
+        subTitle:
+            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ",
+        isExpanded: false));
+    list.add(FAQ(
+        title: "How to delete conitnue watching",
+        subTitle:
+            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ",
+        isExpanded: false));
+    list.add(FAQ(
+        title: "How to delete conitnue watching",
+        subTitle:
+            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ",
+        isExpanded: false));
+    list.add(FAQ(
+        title: "How to delete conitnue watching",
+        subTitle:
+            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ",
+        isExpanded: false));
+
+    return list;
+  }
 
   static String description =
       "Clean lines, versatile and timeless—the people shoe returns with the Nike Air Max 90. Featuring the same iconic Waffle sole, stitched overlays and classic TPU accents you come to love, it lets you walk among the pantheon of Air. ßNothing as fly, nothing as comfortable, nothing as proven. The Nike Air Max 90 stays true to its OG running roots with the iconic Waffle sole, stitched overlays and classic TPU details. Classic colours celebrate your fresh look while Max Air cushioning adds comfort to the journey.";

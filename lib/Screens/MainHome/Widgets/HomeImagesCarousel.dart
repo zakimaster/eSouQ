@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'SliderIndicator/effects/worm_effect.dart';
-import 'SliderIndicator/smooth_page_indicator.dart';
+import '../../../widgets/SliderIndicator/effects/worm_effect.dart';
+import '../../../widgets/SliderIndicator/smooth_page_indicator.dart';
 
 class HomeSliderSection extends StatefulWidget {
 

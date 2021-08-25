@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-import 'AppConstants.dart';
+import '../Config.dart';
 
 class GeneralTools {
 
@@ -27,6 +27,6 @@ class GeneralTools {
   }
 
   double dynamicWidth(BuildContext context) {
-    return isMobile ? context.width() : applicationMaxWidth;
+    return isMobile ? context.width() : Config.applicationMaxWidth;
   }
 }

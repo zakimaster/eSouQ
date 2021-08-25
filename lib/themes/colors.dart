@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-
 // Light Theme Colors
-const appColorPrimary = Color(0xFF0A79DF);
-const appColorPrimaryDark = Color(0xFF0A79DF);
+const appColorPrimary = Color(0xFFFD5530);
+const appColorPrimaryDark = Color(0xFFFD5530);
 const appColorAccent = Color(0xFF03DAC5);
 const appTextColorPrimary = Color(0xFF212121);
 const iconColorPrimary = Color(0xFFFFFFFF);
 const appTextColorSecondary = Color(0xFF5A5C5E);
+const appTextColorThird = Color(0xFF77787A);
 const iconColorSecondary = Color(0xFFA8ABAD);
 const appLayout_background = Color(0xFFf8f8f8);
 const appWhite = Color(0xFFFFFFFF);
@@ -33,6 +33,8 @@ const appShadowColor = Color(0x95E9EBF0);
 const appColorPrimaryLight = Color(0xFFF9FAFF);
 const appSecondaryBackgroundColor = Color(0xFF131d25);
 const appDividerColor = Color(0xFFDADADA);
+const FacebookColor = Color(0xFF4265b0);
+const search_edittext_color = Color(0xFF2C2D31);
 
 // Dark Theme Colors
 const appBackgroundColorDark = Color(0xFF131d25);

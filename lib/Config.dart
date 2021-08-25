@@ -1,17 +1,7 @@
-// Copyright (c) 2020 Aniket Malik [aniketmalikwork@gmail.com]
-// All Rights Reserved.
-//
-// NOTICE: All information contained herein is, and remains the
-// property of Aniket Malik. The intellectual and technical concepts
-// contained herein are proprietary to Aniket Malik and are protected
-// by trade secret or copyright law.
-//
-// Dissemination of this information or reproduction of this material
-// is strictly forbidden unless prior written permission is obtained from
-// Aniket Malik.
+class Config {
 
-abstract class Config {
-  static const String appName = 'WooStore Pro';
+  Config();
+  static const String appName = 'eSouQ';
   static const String appIconPath = 'lib/assets/images/app_icon.jpg';
   static const String currency = 'USD';
   static const String currencySymbol = '\$';
@@ -208,6 +198,50 @@ abstract class Config {
 
   /// Flag to check if the link shared should show a title.
   static const bool enableShareAppFirebaseDynamicLinksTitle = true;
+
+  static const fontRegular = 'Regular';
+  static const fontMedium = 'Medium';
+  static const fontSemibold = 'Semibold';
+  static const fontBold = 'Bold';
+
+/* font sizes*/
+  static const textSizeSmall = 12.0;
+  static const textSizeSMedium = 14.0;
+  static const textSizeMedium = 16.0;
+  static const textSizeLargeMedium = 18.0;
+  static const textSizeNormal = 20.0;
+  static const textSizeLarge = 24.0;
+  static const textSizeXLarge = 30.0;
+  static const textSizeXXLarge = 35.0;
+
+// Shared Pref
+  static const appOpenCount = 'appOpenCount';
+
+  /// Linux - for linux, you have to change default window width in linux/my_application.cc
+  static const applicationMaxWidth = 500.0;
+
+  static const isDarkModeOnPref = 'isDarkModeOnPref';
+  static const dateFormat = 'MMM dd, yyyy';
+
+  static const PlayStoreUrl = 'https://play.google.com/store/apps/details?id=';
+
+  static const bannerAdIdForAndroidRelease = "ca-app-pub-1399327544318575/5026584528";
+  static const bannerAdIdForAndroid = "ca-app-pub-3940256099942544/6300978111";
+  static const bannerAdIdForIos = "ca-app-pub-3940256099942544/2934735716";
+  static const InterstitialAdIdForAndroidRelease =
+      "ca-app-pub-1399327544318575/8774597158";
+  static const InterstitialAdIdForAndroid = "ca-app-pub-3940256099942544/1033173712";
+  static const interstitialAdIdForIos = "ca-app-pub-3940256099942544/4411468910";
+
+  static const LoremText =
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is simply text';
+
+// App Names
+  static const mpAppName = 'Music PodCast';
+
+//AppId
+  static const OneSignalId = '610492cb-f697-43cf-af0a-4c6461508157';
+
 }
 
 abstract class FirebaseDynamicLinksConfig {
@@ -233,4 +267,6 @@ abstract class FirebaseDynamicLinksConfig {
   static const bool shareProductTitle = true;
   static const bool shareProductDescription = true;
   static const bool shareProductImage = true;
+
+
 }
