@@ -4,3 +4,10 @@ List<String?> getGenders(context) {
     "female",
   ];
 }
+
+List<String?> getCategories(context) {
+  return [
+    "Women Fashion",
+    "Men Fashion",
+  ];
+}

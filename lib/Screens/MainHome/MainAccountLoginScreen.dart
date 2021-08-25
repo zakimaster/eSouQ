@@ -1,4 +1,6 @@
 import 'package:esouq/Screens/CustomerScreens/CostumerSignInScreen.dart';
+import 'package:esouq/Screens/DeliverScreens/DeliverSignInScreen.dart';
+import 'package:esouq/Screens/StoreScreens/StoreSignInScreen.dart';
 import 'package:esouq/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +35,9 @@ class _MainAccountLoginState extends State<MainAccountLogin> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                StoreSignInScreen().launch(context);
+              },
               child: Icon(
                 Icons.storefront_outlined,
                 color: Colors.black45,
@@ -81,7 +85,9 @@ class _MainAccountLoginState extends State<MainAccountLogin> {
           height: 15,
         ),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            DeliverSignInScreen().launch(context);
+          },
           child: Icon(
             Icons.delivery_dining,
             color: Colors.black45,
