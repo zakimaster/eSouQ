@@ -102,8 +102,9 @@ Padding editTextGreyOutlinedRoundedStyle(var hintText) {
   );
 }
 
-Widget address(BuildContext context) {
+Widget address(BuildContext context, double screenwidth) {
   return Container(
+    width: screenwidth,
     padding: EdgeInsets.fromLTRB(16, 10, 16, 10),
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50), color: appBorderGreyColor),
