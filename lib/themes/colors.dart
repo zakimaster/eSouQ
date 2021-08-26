@@ -11,6 +11,7 @@ const appTextColorThird = Color(0xFF77787A);
 const iconColorSecondary = Color(0xFFA8ABAD);
 const appLayout_background = Color(0xFFf8f8f8);
 const appWhite = Color(0xFFFFFFFF);
+const appBorderGreyColor = Color(0xFFDADADA);
 const appLight_purple = Color(0xFFdee1ff);
 const appLight_orange = Color(0xFFffddd5);
 const appLight_parrot_green = Color(0xFFb4ef93);

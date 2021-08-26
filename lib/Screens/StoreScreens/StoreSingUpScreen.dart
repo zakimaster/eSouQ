@@ -37,7 +37,8 @@ class StoreSingUpScreennState extends State<StoreSingUpScreen> {
   bool isLoading = false;
   bool loadFromFile = false;
   var selectedCategory;
-
+  double _width = 0;
+  double _height = 0;
   late GoogleMapController _controller;
 
   List<Marker> allMarkers = [];
@@ -91,7 +92,8 @@ class StoreSingUpScreennState extends State<StoreSingUpScreen> {
   @override
   Widget build(BuildContext context) {
     selectedCategory = getCategories(context).first;
-
+    _width = MediaQuery.of(context).size.width;
+    _height = MediaQuery.of(context).size.height;
     Widget _signupEmail() {
       return SingleChildScrollView(
         child: Column(
@@ -129,7 +131,7 @@ class StoreSingUpScreennState extends State<StoreSingUpScreen> {
 
     Widget profilePhoto() {
       return Container(
-          width: double.infinity,
+          width: _width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -215,8 +217,8 @@ class StoreSingUpScreennState extends State<StoreSingUpScreen> {
       return Stack(
         children: <Widget>[
           Container(
-            height: MediaQuery.of(context).size.height - 300,
-            width: MediaQuery.of(context).size.width,
+            height: _height - 300,
+            width: _width,
             child: GoogleMap(
               initialCameraPosition: CameraPosition(
                   target: LatLng(20.817595, 72.954918), zoom: 12.0),
@@ -229,7 +231,7 @@ class StoreSingUpScreennState extends State<StoreSingUpScreen> {
             child: Container(
               height: 40.0,
               width: MediaQuery.of(context).size.width,
-              child: smallAddressWidget(context),
+              child: address(context, _width),
             ),
           )
         ],
@@ -305,48 +307,6 @@ class StoreSingUpScreennState extends State<StoreSingUpScreen> {
         ),
       ),
     );
-
-    /*return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            100.height,
-            Text('Create new\naccount', style: boldTextStyle(size: 30)),
-            30.height,
-            appTextFieldWidget(nameController, 'Name', TextFieldType.NAME,
-                focus: nameFocus, nextFocus: emailFocus),
-            16.height,
-            appTextFieldWidget(
-                emailController, 'Email Address', TextFieldType.EMAIL,
-                focus: emailFocus, nextFocus: phoneFocus),
-            16.height,
-            appTextFieldWidget(
-                phoneController, 'Phone Number', TextFieldType.PHONE,
-                focus: phoneFocus, nextFocus: passwordFocus),
-            16.height,
-            appTextFieldWidget(
-                passwordController, 'Password', TextFieldType.PASSWORD,
-                focus: passwordFocus),
-            50.height,
-            appButtonWidget(context, 'Create Account', () {
-              finish(context);
-            }),
-            30.height,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Have an Account?', style: primaryTextStyle()),
-                Text(' Sign In', style: boldTextStyle(color: appColorPrimary))
-                    .onTap(() {
-                  finish(context);
-                }),
-              ],
-            ),
-          ],
-        ).paddingOnly(left: 16, right: 16),
-      ),
-    );*/
   }
 
 //------------------------------------------------------------
