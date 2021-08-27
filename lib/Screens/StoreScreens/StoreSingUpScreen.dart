@@ -230,8 +230,8 @@ class StoreSingUpScreennState extends State<StoreSingUpScreen> {
             bottom: 20.0,
             child: Container(
               height: 40.0,
-              width: MediaQuery.of(context).size.width,
-              child: address(context, _width),
+              width: MediaQuery.of(context).size.width - 50,
+              child: smallAddressWidget(context),
             ),
           )
         ],

@@ -13,7 +13,7 @@ const sender_id = 1;
 const receiver_id = 2;
 
 class AppData {
-  static List<Product> productList = [
+  /* static List<Product> productList = [
     Product(
         id: 1,
         name: 'Nike Air Max 200',
@@ -84,7 +84,7 @@ class AppData {
     //     isliked: false,
     //     image: 'assets/small_tilt_shoe_2.png',
     //     category: "Trending Now"),
-  ];
+  ];*/
 
   static List<CartListModel> cartList = [
     CartListModel(
@@ -125,14 +125,14 @@ class AppData {
         category: "Trending Now")
   ];
 
-  static List<Category> categories = [
+  /*static List<Category> categories = [
     Category('assets/images/clothes.png', 'Women'),
     Category('assets/images/sneaker.png', 'Men'),
     Category('assets/images/bodysuit.png', 'Baby'),
     Category('assets/images/dress.png', 'Girls'),
     Category('assets/images/computer.png', 'Computers'),
     Category('assets/images/tent.png', 'Outsides'),
-  ];
+  ];*/
 
   static List<String> showThumbnailList = [
     "assets/shoe_thumb_5.png",
@@ -345,7 +345,7 @@ class AppData {
     return '';
   }
 
-  List<AddressListModel> getAddressList() {
+  /* List<AddressListModel> getAddressList() {
     List<AddressListModel> list = [];
 
     AddressListModel a1 = AddressListModel();
@@ -365,9 +365,9 @@ class AppData {
     list.add(a2);
 
     return list;
-  }
+  }*/
 
-  List<ReviewModel> getReviewList() {
+  /* List<ReviewModel> getReviewList() {
     List<ReviewModel> list = [];
 
     ReviewModel r1 = ReviewModel();
@@ -412,7 +412,7 @@ class AppData {
     list.add(r8);
 
     return list;
-  }
+  }*/
 
   List<FAQ> getFaq() {
     List<FAQ> list = [];

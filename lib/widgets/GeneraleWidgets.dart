@@ -1,10 +1,10 @@
 import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:esouq/Config.dart';
+import 'package:esouq/Models/ChatMessagesModel.dart';
 import 'package:esouq/Models/ListModel.dart';
 import 'package:esouq/Models/MessageModel.dart';
 import 'package:esouq/Screens/MainHome/Widgets/AddAddress.dart';
-import 'package:esouq/Tools/AppStrings.dart';
 import 'package:esouq/Tools/GeneralTools.dart';
 import 'package:esouq/themes/colors.dart';
 import 'package:esouq/widgets/utils/clusteringGoogleMaps/lat_lang_geohash.dart';
@@ -13,6 +13,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
+import 'package:nb_utils/nb_utils.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'dart:io' show Platform;
 import '../main.dart';
@@ -88,7 +89,7 @@ Padding editTextGreyOutlinedRoundedStyle(var hintText) {
         contentPadding: EdgeInsets.fromLTRB(24, 16, 24, 16),
         hintText: hintText,
         filled: true,
-        fillColor: appLayout_background,
+        fillColor: appWhite,
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(40),
             borderSide:
@@ -102,14 +103,13 @@ Padding editTextGreyOutlinedRoundedStyle(var hintText) {
   );
 }
 
-Widget address(BuildContext context, double screenwidth) {
+Widget smallAddressWidget(BuildContext context) {
   return Container(
-    width: screenwidth,
     padding: EdgeInsets.fromLTRB(16, 10, 16, 10),
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50), color: appBorderGreyColor),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Text("current address", style: primaryTextStyle()),
         GestureDetector(
@@ -117,7 +117,8 @@ Widget address(BuildContext context, double screenwidth) {
             AddNewAddress().launch(context);
           },
           child: Text("change",
-              style: primaryTextStyle(color: appTextColorPrimary)),
+              style: primaryTextStyle(
+                  color: appColorPrimary, weight: FontWeight.bold)),
         ),
       ],
     ),

@@ -1,4 +1,5 @@
 import 'package:esouq/Models/ProductModel.dart';
+import 'package:esouq/Models/ProductModel.dart';
 import 'package:esouq/Tools/GeneralTools.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,51 +17,49 @@ class PublicProductCard extends StatelessWidget {
     /*Navigator.of(context)
         .push(MaterialPageRoute(builder: (_) => ItemDetailsSreen(item: item)));*/
   }
-  String getLeftProduct(int inStock,int ordered){
+  String getLeftProduct(int inStock, int ordered) {
     int sub = inStock - ordered;
     String t = 'Left $sub';
     return t;
   }
 
   @override
-  Widget build(BuildContext context) =>
-      Column(
+  Widget build(BuildContext context) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
-    children: <Widget>[
-      Stack(
         children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Image.asset(item.image, fit: BoxFit.cover),
+          Stack(
+            children: <Widget>[
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.asset('${item.images![0].src}', fit: BoxFit.cover),
+              ),
+              Material(
+                color: Colors.white,
+                shape: const RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.only(bottomRight: Radius.circular(8)),
+                ),
+                child: Icon(Icons.wifi_calling_sharp,
+                    color: Colors.black.withOpacity(0.8)),
+              )
+            ],
           ),
-          Material(
-            color: Colors.white,
-            shape: const RoundedRectangleBorder(
-              borderRadius:
-              BorderRadius.only(bottomRight: Radius.circular(8)),
-            ),
-            child: Icon(Icons.wifi_calling_sharp, color: Colors.black.withOpacity(0.8)),
-          )
+          buildInfo(context),
         ],
-      ),
-      buildInfo(context),
-    ],
-  );
+      );
 
   Widget buildInfo(BuildContext context) => Container(
-    margin: EdgeInsets.fromLTRB(5,0,5,10),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: <Widget>[
-        SizedBox(height: 4),
-        Text(item.name, style: TextStyle(fontWeight: FontWeight.bold)),
-        SizedBox(height: 4),
-        Text('\$${item.price}', style: Theme.of(context).textTheme.caption),
-      ],
-    ),
-  );
-
-
+        margin: EdgeInsets.fromLTRB(5, 0, 5, 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(height: 4),
+            Text('${item.name}', style: TextStyle(fontWeight: FontWeight.bold)),
+            SizedBox(height: 4),
+            Text('\$${item.price}', style: Theme.of(context).textTheme.caption),
+          ],
+        ),
+      );
 }

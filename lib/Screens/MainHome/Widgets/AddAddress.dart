@@ -89,7 +89,7 @@ class AddNewAddressState extends State<AddNewAddress> {
                         width: MediaQuery.of(context).size.width,
                         padding: EdgeInsets.only(top: 10, bottom: 10),
                         decoration: BoxDecoration(
-                            color: appTextColorPrimary,
+                            color: appColorPrimary,
                             borderRadius: BorderRadius.circular(50),
                             boxShadow: defaultBoxShadow()),
                         child: Text(AddAddress,
