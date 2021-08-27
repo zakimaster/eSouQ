@@ -54,7 +54,7 @@ Future<List<String>> loadBanners() async {
 
   products.forEach((product) {
     if (product.images!.isNotEmpty) {
-      banner.add("images/shophop/img/products" + product.images![0].src!);
+      banner.add("assets/shophop/img/products" + product.images![0].src!);
     }
   });
   return banner;

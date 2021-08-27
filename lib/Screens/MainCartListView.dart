@@ -44,8 +44,8 @@ class MainCartListViewState extends State<MainCartListView> {
     totalAmount = 0;
 
     data.forEach((element) {
-      subTotal += ((element.discountPrice.toInt() ?? element.price.toInt()) *
-          element.quantity);
+      subTotal +=
+          ((element.discountPrice ?? element.price).toInt() * element.quantity);
     });
 
     shippingCharges = (subTotal * 10).toInt() ~/ 100;

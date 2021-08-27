@@ -43,7 +43,7 @@ class _HomeSliderSectionState extends State<HomeSliderSection> {
                     borderRadius: BorderRadius.all(Radius.circular(5.0)),
                     child: Stack(
                       children: <Widget>[
-                        Image.network(item, fit: BoxFit.cover, width: 1000.0),
+                        Image.asset(item, fit: BoxFit.cover, width: 1000.0),
                         Positioned(
                           bottom: 0.0,
                           left: 0.0,

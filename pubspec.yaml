@@ -81,6 +81,12 @@ flutter:
     - assets/introduction_animation/
     - assets/shophop/
     - assets/data/
+    - assets/shophop/img/products/shoes/
+    - assets/shophop/img/products/dress/
+    - assets/shophop/img/products/
+    - assets/shophop/img/
+    - assets/shophop/img/products/banners/
+    - assets/shophop/img/products/decor/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
