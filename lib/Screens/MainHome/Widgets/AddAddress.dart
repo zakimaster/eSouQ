@@ -1,3 +1,4 @@
+import 'package:esouq/Models/AddressListModel.dart';
 import 'package:esouq/Tools/AppStrings.dart';
 import 'package:esouq/themes/colors.dart';
 import 'package:esouq/widgets/GeneraleWidgets.dart';
@@ -6,6 +7,9 @@ import 'package:nb_utils/nb_utils.dart';
 
 class AddNewAddress extends StatefulWidget {
   static String tag = '/AddAddress';
+  AddressModel? addressModel;
+
+  AddNewAddress({this.addressModel});
 
   @override
   AddNewAddressState createState() => AddNewAddressState();

@@ -5,6 +5,8 @@ import 'package:esouq/Models/ChatMessagesModel.dart';
 import 'package:esouq/Models/ListModel.dart';
 import 'package:esouq/Models/MessageModel.dart';
 import 'package:esouq/Screens/MainHome/Widgets/AddAddress.dart';
+import 'package:esouq/Tools/AppConstants.dart';
+import 'package:esouq/Tools/AppSizes.dart';
 import 'package:esouq/Tools/GeneralTools.dart';
 import 'package:esouq/themes/colors.dart';
 import 'package:esouq/widgets/utils/clusteringGoogleMaps/lat_lang_geohash.dart';
@@ -101,6 +103,20 @@ Padding editTextGreyOutlinedRoundedStyle(var hintText) {
       ),
     ),
   );
+}
+
+Widget divider() {
+  return Divider(
+    height: 0.5,
+    color: appWhite,
+  );
+}
+
+Widget headingText(String content) {
+  return text(content,
+      textColor: appTextColorPrimary,
+      fontFamily: font_medium,
+      fontSize: ts_medium_large);
 }
 
 Widget smallAddressWidget(BuildContext context) {

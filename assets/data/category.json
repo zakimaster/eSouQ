@@ -1,0 +1,73 @@
+[
+  {
+    "count": 16,
+    "description": "",
+    "id": 45,
+    "isSelected": false,
+    "menu_order": 0,
+    "name": "Men",
+    "parent": 0,
+    "slug": "men",
+    "image": "assets/shophop/ic_men.png"
+  },
+  {
+    "count": 6,
+    "description": "",
+    "id": 18,
+    "isSelected": false,
+    "menu_order": 0,
+    "name": "Women",
+    "parent": 16,
+    "slug": "women",
+    "image": "assets/shophop/ic_woman.png"
+
+  },
+  {
+    "count": 1,
+    "description": "",
+    "id": 53,
+    "isSelected": false,
+    "menu_order": 0,
+    "name": "Baby & Kids",
+    "parent": 0,
+    "slug": "Kids",
+    "image": "assets/shophop/ic_kids.png"
+
+  },
+  {
+    "count": 14,
+    "description": "",
+    "id": 19,
+    "isSelected": false,
+    "menu_order": 0,
+    "name": "Bags",
+    "parent": 0,
+    "slug": "Bags",
+    "image": "assets/shophop/ic_bag.png"
+
+  },
+  {
+    "count": 4,
+    "description": "",
+    "id": 21,
+    "isSelected": false,
+    "menu_order": 0,
+    "name": "Decor",
+    "parent": 45,
+    "slug": "decor",
+    "image": "assets/shophop/ic_decor.png"
+
+  },
+  {
+    "count": 1,
+    "description": "",
+    "id": 20,
+    "isSelected": false,
+    "menu_order": 0,
+    "name": "Sport",
+    "parent": 0,
+    "slug": "Sport",
+    "image": "assets/shophop/ic_sports.png"
+
+  }
+]

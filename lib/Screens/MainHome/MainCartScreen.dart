@@ -1,24 +1,20 @@
-import 'package:esouq/Models/AppData.dart';
-import 'package:esouq/Models/CartListModel.dart';
+import 'package:esouq/Tools/AppConstants.dart';
+import 'package:esouq/Tools/AppSizes.dart';
+import 'package:esouq/Tools/AppStrings.dart';
 import 'package:esouq/themes/colors.dart';
 import 'package:esouq/widgets/GeneraleWidgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'package:flutter/cupertino.dart';
-
-import '../../main.dart';
 import 'MainCartListView.dart';
 
 class MainCartList extends StatefulWidget {
-
   @override
   _MainCartListState createState() => _MainCartListState();
 }
 
 class _MainCartListState extends State<MainCartList> {
-
   @override
   void initState() {
     super.initState();
@@ -32,28 +28,75 @@ class _MainCartListState extends State<MainCartList> {
 
   @override
   Widget build(BuildContext context) {
-
-    Widget checkOutBtn() {
-      return Container(
-        alignment: Alignment.center,
-        padding: EdgeInsets.all(12),
-        decoration:
-            boxDecorationRoundedWithShadow(8, backgroundColor: appDarkRed),
-        child: Text('Checkout', style: boldTextStyle(color: white)),
-      ).onTap(() {
-        //DTOrderSummaryScreen(getCartProducts()).launch(context);
-      });
-    }
+    var bottomButtons = Container(
+      height: 65,
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+            color: shadowColorGlobal,
+            blurRadius: 10,
+            spreadRadius: 2,
+            offset: Offset(0, 3))
+      ], color: appWhite),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                text("\$70",
+                    textColor: appTextColorPrimary,
+                    fontFamily: font_bold,
+                    fontSize: ts_medium_large),
+                text(lbl_see_price_detail, fontSize: 14.0),
+              ],
+            ),
+          ),
+          Expanded(
+            child: InkWell(
+              child: Container(
+                child: text(lbl_continue,
+                    textColor: white,
+                    fontSize: ts_medium_large,
+                    fontFamily: font_medium),
+                color: appColorPrimary,
+                alignment: Alignment.center,
+                height: double.infinity,
+              ),
+              onTap: () {
+                // ShOrderSummaryScreen().launch(context);
+              },
+            ),
+          )
+        ],
+      ),
+    );
 
     Widget mobileWidget() {
-      return SingleChildScrollView(
-        padding: EdgeInsets.all(8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            MainCartListView(mIsEditable: true, isOrderSummary: true),
-            Center(child: checkOutBtn()),
-          ],
+      return Scaffold(
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          child: Stack(
+            alignment: Alignment.bottomLeft,
+            children: <Widget>[
+              SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 70.0),
+                  child: Column(
+                    children: [
+                      MainCartListView(mIsEditable: true, isOrderSummary: true),
+                      Center(child: bottomButtons),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                color: appWhite,
+                padding: const EdgeInsets.only(bottom: 60),
+                child: bottomButtons,
+              )
+            ],
+          ),
         ),
       );
     }
@@ -63,8 +106,8 @@ class _MainCartListState extends State<MainCartList> {
     }
 
     return ContainerX(
-        mobile: mobileWidget(),
-        web: webWidget(),
+      mobile: mobileWidget(),
+      web: webWidget(),
       useFullWidth: true,
     );
   }
