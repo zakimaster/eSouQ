@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
+import '../PublicProductDetail.dart';
+
 class TopSellItems extends StatelessWidget {
   final Product item;
   const TopSellItems({
@@ -25,7 +27,12 @@ class TopSellItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onTap(context),
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => PublicProductDetail(product: item)));
+      },
       child: Container(
         width: GeneralTools.width * 0.3,
         decoration: BoxDecoration(

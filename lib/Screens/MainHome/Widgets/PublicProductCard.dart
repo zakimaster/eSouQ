@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
+import '../PublicProductDetail.dart';
+
 class PublicProductCard extends StatelessWidget {
   final Product item;
   const PublicProductCard({
@@ -14,9 +16,12 @@ class PublicProductCard extends StatelessWidget {
   }) : super(key: key);
 
   void onTap(BuildContext context) {
-    /*Navigator.of(context)
-        .push(MaterialPageRoute(builder: (_) => ItemDetailsSreen(item: item)));*/
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => PublicProductDetail(product: item)));
   }
+
   String getLeftProduct(int inStock, int ordered) {
     int sub = inStock - ordered;
     String t = 'Left $sub';

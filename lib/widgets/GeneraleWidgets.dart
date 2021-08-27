@@ -1,11 +1,13 @@
 import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:esouq/Config.dart';
-import 'package:esouq/Models/ChatMessagesModel.dart';
+import 'package:esouq/Screens/MainHome/MainCartScreen.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:esouq/Models/ListModel.dart';
 import 'package:esouq/Models/MessageModel.dart';
 import 'package:esouq/Screens/MainHome/Widgets/AddAddress.dart';
 import 'package:esouq/Tools/AppConstants.dart';
+import 'package:esouq/Tools/AppImages.dart';
 import 'package:esouq/Tools/AppSizes.dart';
 import 'package:esouq/Tools/GeneralTools.dart';
 import 'package:esouq/themes/colors.dart';
@@ -15,7 +17,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
-import 'package:nb_utils/nb_utils.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'dart:io' show Platform;
 import '../main.dart';
@@ -109,6 +110,42 @@ Widget divider() {
   return Divider(
     height: 0.5,
     color: appWhite,
+  );
+}
+
+Widget cartIcon(context, cartCount) {
+  return InkWell(
+    child: Stack(
+      alignment: Alignment.center,
+      children: <Widget>[
+        Container(
+          width: 40,
+          height: 40,
+          margin: EdgeInsets.only(right: spacing_standard_new),
+          padding: EdgeInsets.all(spacing_standard),
+          child: SvgPicture.asset(
+            ic_cart,
+          ),
+        ),
+        cartCount > 0
+            ? Align(
+                alignment: Alignment.topRight,
+                child: Container(
+                  margin: EdgeInsets.only(top: spacing_control),
+                  padding: EdgeInsets.all(6),
+                  decoration:
+                      BoxDecoration(shape: BoxShape.circle, color: Colors.red),
+                  child: text(cartCount.toString(),
+                      textColor: appWhite, fontSize: ts_small),
+                ),
+              )
+            : Container()
+      ],
+    ),
+    onTap: () {
+      MainCartList().launch(context);
+    },
+    radius: spacing_standard_new,
   );
 }
 
