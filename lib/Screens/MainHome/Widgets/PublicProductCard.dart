@@ -35,7 +35,7 @@ class PublicProductCard extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.asset(
-                    "assets/shophop/img/products" + "${item.images![0].src}",
+                    "assets/shophop/img/products" + "${item.images![0].src!}",
                     fit: BoxFit.cover,
                   ),
                 ),
