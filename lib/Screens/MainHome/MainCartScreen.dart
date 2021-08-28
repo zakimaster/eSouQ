@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'MainCartListView.dart';
+import 'OrderSummaryScreen.dart';
 
 class MainCartList extends StatefulWidget {
   @override
@@ -64,7 +65,7 @@ class _MainCartListState extends State<MainCartList> {
                 height: double.infinity,
               ),
               onTap: () {
-                // ShOrderSummaryScreen().launch(context);
+                CheckoutSummaryScreen().launch(context);
               },
             ),
           )
@@ -81,7 +82,7 @@ class _MainCartListState extends State<MainCartList> {
             children: <Widget>[
               SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.only(bottom: 70.0),
+                  padding: const EdgeInsets.only(bottom: 0.0),
                   child: Column(
                     children: [
                       MainCartListView(mIsEditable: true, isOrderSummary: true),
@@ -92,7 +93,7 @@ class _MainCartListState extends State<MainCartList> {
               ),
               Container(
                 color: appWhite,
-                padding: const EdgeInsets.only(bottom: 60),
+                padding: const EdgeInsets.only(bottom: 0.0),
                 child: bottomButtons,
               )
             ],

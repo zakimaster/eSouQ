@@ -15,14 +15,14 @@ import 'package:nb_utils/nb_utils.dart';
 import 'AddressManagerScreen.dart';
 import 'CartPaymentScreen.dart';
 
-class ShOrderSummaryScreen extends StatefulWidget {
-  static String tag = '/ShOrderSummaryScreen';
+class CheckoutSummaryScreen extends StatefulWidget {
+  static String tag = '/CheckoutSummaryScreen';
 
   @override
-  ShOrderSummaryScreenState createState() => ShOrderSummaryScreenState();
+  CheckoutSummaryScreenState createState() => CheckoutSummaryScreenState();
 }
 
-class ShOrderSummaryScreenState extends State<ShOrderSummaryScreen> {
+class CheckoutSummaryScreenState extends State<CheckoutSummaryScreen> {
   List<Product> list = [];
   List<AddressModel> addressList = [];
   var selectedPosition = 0;
@@ -98,7 +98,7 @@ class ShOrderSummaryScreenState extends State<ShOrderSummaryScreen> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
                       Image.asset(
-                        "images/shophop/img/products" +
+                        "assets/shophop/img/products" +
                             list[index].images![0].src!,
                         width: width * 0.25,
                         height: width * 0.3,
@@ -422,20 +422,6 @@ class ShOrderSummaryScreenState extends State<ShOrderSummaryScreen> {
                   isLoaded ? address : Container(),
                   cartList,
                   paymentDetail,
-                  images.isNotEmpty
-                      ? Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: appLayout_background, width: 0.5)),
-                          margin: const EdgeInsets.all(spacing_standard_new),
-                          child: Image.asset(
-                            images[currentIndex],
-                            width: double.infinity,
-                            height: width * 0.4,
-                            fit: BoxFit.cover,
-                          ),
-                        )
-                      : Container(),
                 ],
               ),
             ),

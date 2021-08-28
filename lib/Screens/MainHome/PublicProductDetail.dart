@@ -14,6 +14,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
+import 'OrderSummaryScreen.dart';
+
 // ignore: must_be_immutable
 class PublicProductDetail extends StatefulWidget {
   static String tag = '/PublicProductDetail';
@@ -720,7 +722,7 @@ class PublicProductDetailState extends State<PublicProductDetail> {
       ),
     );
     var bottomButtons = Container(
-      height: 50,
+      height: 60,
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
             color: Colors.grey.withOpacity(0.7),
@@ -750,7 +752,9 @@ class PublicProductDetailState extends State<PublicProductDetail> {
               color: appColorPrimary,
               alignment: Alignment.center,
               height: double.infinity,
-            ),
+            ).onTap(() {
+              CheckoutSummaryScreen().launch(context);
+            }),
           )
         ],
       ),

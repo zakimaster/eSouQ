@@ -56,7 +56,7 @@ class TopSellItems extends StatelessWidget {
                           bottomRight: Radius.circular(0)),
                       child: Image.asset(
                         "assets/shophop/img/products" +
-                            "${item.images![0].src}",
+                            "${item.images![0].src!}",
                         height: constraints.maxHeight * 0.6,
                         width: double.infinity,
                         fit: BoxFit.cover,

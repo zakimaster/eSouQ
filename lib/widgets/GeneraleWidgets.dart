@@ -267,7 +267,7 @@ Widget text(
     maxLines: isLongText ? null : maxLine,
     overflow: TextOverflow.ellipsis,
     style: TextStyle(
-      fontFamily: fontFamily ?? null,
+      fontFamily: font_medium,
       fontSize: fontSize,
       color: textColor ?? appStore.textSecondaryColor,
       height: 1.5,
