@@ -4,6 +4,7 @@ import 'package:esouq/Models/AddressListModel.dart';
 import 'package:esouq/Models/ProductModel.dart';
 import 'package:esouq/Tools/AppConstants.dart';
 import 'package:esouq/Tools/AppExtension.dart';
+import 'package:esouq/Tools/AppImages.dart';
 import 'package:esouq/Tools/AppSizes.dart';
 import 'package:esouq/Tools/AppStrings.dart';
 import 'package:esouq/themes/colors.dart';
@@ -30,6 +31,14 @@ class CheckoutSummaryScreenState extends State<CheckoutSummaryScreen> {
   var currentIndex = 0;
   Timer? timer;
   var isLoaded = false;
+
+  int? _radioValue1 = 0;
+
+  void something(int? value) {
+    setState(() {
+      _radioValue1 = value;
+    });
+  }
 
   @override
   void initState() {
@@ -234,6 +243,40 @@ class CheckoutSummaryScreenState extends State<CheckoutSummaryScreen> {
               // return Chats(mListings[index], index);
             })
         : Container();
+
+    var applyCoupons = DottedBorder(
+      color: food_colorAccent,
+      strokeWidth: 1,
+      padding: EdgeInsets.all(16),
+      radius: Radius.circular(16),
+      child: ClipRRect(
+        child: Container(
+            width: width,
+            padding: EdgeInsets.all(4),
+            color: food_color_light_primary,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Expanded(
+                  flex: 2,
+                  child: Text(food_lbl_you_have_saved_30_on_the_bill,
+                          style: primaryTextStyle())
+                      .center(),
+                ),
+                Expanded(
+                    flex: 1,
+                    child: GestureDetector(
+                      onTap: () {
+                        FoodCoupon().launch(context);
+                      },
+                      child: Text(food_lbl_edit, style: primaryTextStyle())
+                          .center(),
+                    ))
+              ],
+            )),
+      ),
+    );
+
     var paymentDetail = Container(
       margin: EdgeInsets.fromLTRB(spacing_standard_new, spacing_standard_new,
           spacing_standard_new, spacing_standard_new),
@@ -359,6 +402,84 @@ class CheckoutSummaryScreenState extends State<CheckoutSummaryScreen> {
         ],
       ),
     );
+
+    var paymentOptions = Column(children: [
+      16.height,
+      Padding(
+          padding: EdgeInsets.only(left: 15, right: 15),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(lbl_payment_methods,
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: appTextColorPrimary,
+                      fontWeight: FontWeight.bold)),
+              Text(lbl_add_payment,
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: appColorPrimary,
+                          fontWeight: FontWeight.bold))
+                  .onTap(() {
+                CartPaymentScreen().launch(context);
+              }),
+            ],
+          )),
+      8.height,
+      Container(
+        margin: EdgeInsets.only(top: 8),
+        color: whiteColor,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Image.asset(ic_visacard_color, height: 40, width: 40),
+                  16.width,
+                  Text('**** **** *123',
+                      style: TextStyle(color: appTextColorPrimary)),
+                ],
+              ),
+              Radio(
+                  value: 0,
+                  groupValue: _radioValue1,
+                  activeColor: appColorPrimary,
+                  onChanged: (dynamic value) => something(value)),
+            ],
+          ),
+        ),
+      ),
+      Container(
+        margin: EdgeInsets.only(top: 8),
+        color: whiteColor,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Image.asset(ic_mastercard_color, height: 40, width: 40),
+                  16.width,
+                  Text('**** **** *333',
+                      style: TextStyle(color: appTextColorPrimary)),
+                ],
+              ),
+              Radio(
+                value: 1,
+                groupValue: _radioValue1,
+                activeColor: appColorPrimary,
+                focusColor: appTextColorSecondary,
+                onChanged: (dynamic value) => something(value),
+              ),
+            ],
+          ),
+        ),
+      )
+    ]);
+
     var bottomButtons = Container(
       height: 60,
       decoration: BoxDecoration(boxShadow: [
@@ -394,9 +515,7 @@ class CheckoutSummaryScreenState extends State<CheckoutSummaryScreen> {
                 alignment: Alignment.center,
                 height: double.infinity,
               ),
-              onTap: () {
-                CartPaymentScreen().launch(context);
-              },
+              onTap: () {},
             ),
           )
         ],
@@ -421,6 +540,7 @@ class CheckoutSummaryScreenState extends State<CheckoutSummaryScreen> {
                 children: <Widget>[
                   isLoaded ? address : Container(),
                   cartList,
+                  paymentOptions,
                   paymentDetail,
                 ],
               ),

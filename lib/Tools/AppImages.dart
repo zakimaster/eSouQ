@@ -11,6 +11,8 @@ const ic_help = "assets/images/ic_help.png";
 const ic_language = "assets/images/ic_language.png";
 const ic_report = "assets/images/ic_report.png";
 const ic_avatar = "assets/images/userImage.png";
+const ic_visacard_color = "assets/images/visaCardImg.webp";
+const ic_mastercard_color = "assets/images/masterCardImg.png";
 
 const bg_bottom_bar = "assets/shophop/bg_bottom_bar.png";
 const card = "assets/shophop/card.png";
